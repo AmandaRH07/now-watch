@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
+
+:root{
+  --offWhite: #fdfdfb;
+  --blue1: #76b5c5;
+  --blue2: #1e81b0;
+  --blue3: #154c79;
+  --grey1: #616169;
+  --grey2: #232325;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font: 400 14px Roboto, sans-serif;
+  background: var(--offWhite);
+  -web-kit-font-smoothing: antialiased;
+}
+
+input, button, textarea{
+  font: 400 14px Roboto, sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+.button:hover{
+  filter: brightness(80%);
+}
