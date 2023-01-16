@@ -1,0 +1,7 @@
+.sidebar-container{
+  height: 550px;
+  width: 200px;
+  max-width: 25%;
+  max-height: 100%;
+  background-color: var(--offWhite);
+}

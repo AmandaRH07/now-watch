@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
 
 :root{
+  --white: #f1eeee;
   --offWhite: #fdfdfb;
   --blue1: #76b5c5;
   --blue2: #1e81b0;
@@ -18,7 +19,7 @@
 
 body {
   font: 400 14px Roboto, sans-serif;
-  background: var(--offWhite);
+  background: var(--white);
   -web-kit-font-smoothing: antialiased;
 }
 
