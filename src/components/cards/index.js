@@ -21,12 +21,18 @@ const data = {
 export default function Cards() {
   return (
     <div className="cards-conteiner">
-      <h3> o o carro do card passando</h3>
+    <h2> Opções</h2>
 
       <div className="card-content">
         <Card
           data={data} />
-        <Card
+        <Card 
+          data={data} />
+        <Card 
+          data={data} />
+        <Card 
+          data={data} />
+        <Card 
           data={data} />
       </div>
     </div>
