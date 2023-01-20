@@ -5,3 +5,35 @@
   max-height: 100%;
   background-color: var(--offWhite);
 }
+
+img {
+  height: 10px;
+}
+
+.options-content{
+  padding: 10px;
+}
+
+.select-stream{
+  display: flex; 
+  align-items: center;
+}
+
+.sidebar-p{
+  color: var(--grey1) !important;
+  padding: 0px 10px;
+  font-size: medium;
+  display: flex;
+}
+
+.radio_item{
+  display: none !important;
+  }
+  
+  .label_item {
+  opacity: 0.1;
+  }
+  
+  .radio_item:checked + label {
+  opacity: 1;
+}
