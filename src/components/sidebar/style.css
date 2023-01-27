@@ -6,16 +6,13 @@
   background-color: var(--offWhite);
 }
 
-img {
-  height: 10px;
-}
-
-.options-content{
+/* .options-content{
   padding: 10px;
+  background-color: red;
 }
 
 .select-stream{
-  display: flex; 
+  display: flex;
   align-items: center;
 }
 
@@ -25,15 +22,23 @@ img {
   font-size: medium;
   display: flex;
 }
+*/
 
-.radio_item{
-  display: none !important;
-  }
-  
-  .label_item {
-  opacity: 0.1;
-  }
-  
-  .radio_item:checked + label {
-  opacity: 1;
+.check-image label > input{
+    visibility: hidden;
+}
+
+.check-image label > input + i {
+    display:inline-block;
+    cursor:pointer;
+    width: 15px;
+    height: 15px;
+
+    background:url('../../images/play-empty.png') no-repeat;
+    background-size:cover;
+    transition:0.5s;
+}
+.check-image label > input:checked + i {
+    background:url('../../images/play-full.png') no-repeat;
+    background-size:cover;
 }

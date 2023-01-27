@@ -1,35 +1,88 @@
 import React from "react";
 import './style.css';
-import playBackground from '../../images/playBackground.png'
+// import playBackground from '../../images/playBackground.png'
+
+var sidebarOptions = [
+  {
+    id: 0,
+    type: "Streamings",
+    // options: "Netflix,
+    options: [
+      {
+        options_id: 0,
+        option: "Netflix",
+        option: "Amazon Prime",
+        option: "Apple TV",
+        option: "HBO Max",
+        option: "Disney Plus",
+        option: "Star Plus",
+        option: "Globo Play",
+      }]
+  },
+  {
+    id: 1,
+    type: "Categories",
+    options: [
+      {
+        options_id: 3,
+        option: "Filme",
+        option: "Série",
+      }]
+  },
+  {
+    id: 2,
+    type: "Genres",
+    options: [
+      {
+        options_id: 2,
+        option: "Ação",
+        option: "Animação",
+        option: "Comédia",
+        option: "Drama",
+        option: "Ficção Científica",
+        option: "Romance",
+        option: "Terror",
+      }]
+  },
+];
 
 export default function sidebar() {
+
+  const types = sidebarOptions.map(x => {
+    return x.type;
+  })
+
   return (
     <div className="sidebar-container" >
-      <h2 className="titles-container"> Streamings </h2>
+      <h2 className="titles-container"> Select your streamings options </h2>
       <div className="options-content">
-        <div className="select-stream">
-          <input type="checkbox" class="radio_item" />
-          <label class="label_item"> <img src={playBackground}/></label>
-          <p className="sidebar-p">Netflix</p>
-        </div>
-        <p className="sidebar-p">Amazon Prime</p>
-        <p className="sidebar-p">HBO Max</p>
-        <p className="sidebar-p">Disney Plus</p>
-        <p className="sidebar-p">Star Plus</p>
-        <p className="sidebar-p">Globo Play</p>
-      </div>
-      <h2>Tipo</h2>
-      <p className="sidebar-p">Filme</p>
-      <p className="sidebar-p">Série</p>
-
-      <h2>Gênero</h2>
-      <p>Ação</p>
-      <p>Animação</p>
-      <p>Comédia</p>
-      <p>Drama</p>
-      <p>Ficção Científica</p>
-      <p>Romance</p>
-      <p>Terror</p>
-    </div>
+     
+      <fieldset className="check-image">
+        <label for="like">
+        <input type="checkbox" name="like" id="like" value="check"/>
+          <i className="Teste"></i>
+          {/* <p>Netflix</p> */}
+        </label>
+      </fieldset>
+       
+      </div> 
+    </div >
   )
 };
+
+ {/* <input className="" type="radio" name="rad"/><label for="rad1">Radio 1</label> */}
+
+        {/* { 
+          types.map((element, index) => {
+            console.log("EEE", element) &&
+            <p key={index} className="sidebar-p">{element}</p>
+          })
+        }
+        {
+          sidebarOptions.forEach(x => {
+            x.map(y => {
+            console.log("XXX", y.option) &&
+            <p  className="sidebar-p">{y.option}</p>
+          })
+        })
+        } */}
