@@ -1,6 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
+import { Checkbox } from '@mui/material';
+import { PlayArrowOutlined, PlayArrow } from '@mui/icons-material';
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
 import './style.css';
-// import playBackground from '../../images/playBackground.png'
 
 var sidebarOptions = [
   {
@@ -46,7 +49,8 @@ var sidebarOptions = [
   },
 ];
 
-export default function sidebar() {
+export default function Sidebar() {
+  const [checkbox, setCheckbox] = useState("");
 
   const types = sidebarOptions.map(x => {
     return x.type;
@@ -56,33 +60,38 @@ export default function sidebar() {
     <div className="sidebar-container" >
       <h2 className="titles-container"> Select your streamings options </h2>
       <div className="options-content">
-     
-      <fieldset className="check-image">
-        <label for="like">
-        <input type="checkbox" name="like" id="like" value="check"/>
-          <i className="Teste"></i>
-          {/* <p>Netflix</p> */}
-        </label>
-      </fieldset>
-       
-      </div> 
+        <FormGroup>
+          <h3> Steamings</h3>
+            <FormControlLabel 
+              control={<Checkbox icon={<PlayArrowOutlined />} 
+              checkedIcon={<PlayArrow />} />} 
+              value="Netflix"
+              label="Netflix" 
+              onClick={() => { setCheckbox("true") 
+                console.log("VALUE", checkbox)}}/>
+            <FormControlLabel 
+              control={<Checkbox icon={<PlayArrowOutlined />} 
+              checkedIcon={<PlayArrow />} />} 
+              value="AmazonPrime"
+              label="AmazonPrime" />
+            <FormControlLabel 
+              control={<Checkbox icon={<PlayArrowOutlined />} 
+              checkedIcon={<PlayArrow />} />} 
+              value="HBO"
+              label="HBO" />
+          <h3> Categorias </h3>
+            <FormControlLabel 
+              control={<Checkbox icon={<PlayArrowOutlined />} 
+              checkedIcon={<PlayArrow />} />} 
+              value="Filmes"
+              label="Filmes" />
+            <FormControlLabel 
+              control={<Checkbox icon={<PlayArrowOutlined />} 
+              checkedIcon={<PlayArrow />} />} 
+              value="Series"
+              label="Séries" />
+        </FormGroup>
+      </div>
     </div >
   )
 };
-
- {/* <input className="" type="radio" name="rad"/><label for="rad1">Radio 1</label> */}
-
-        {/* { 
-          types.map((element, index) => {
-            console.log("EEE", element) &&
-            <p key={index} className="sidebar-p">{element}</p>
-          })
-        }
-        {
-          sidebarOptions.forEach(x => {
-            x.map(y => {
-            console.log("XXX", y.option) &&
-            <p  className="sidebar-p">{y.option}</p>
-          })
-        })
-        } */}

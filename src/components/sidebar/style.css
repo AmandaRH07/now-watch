@@ -6,39 +6,16 @@
   background-color: var(--offWhite);
 }
 
-/* .options-content{
+.options-content{
   padding: 10px;
-  background-color: red;
 }
 
-.select-stream{
-  display: flex;
-  align-items: center;
+h3{
+  padding-top: 15px;
 }
 
-.sidebar-p{
+label {
   color: var(--grey1) !important;
-  padding: 0px 10px;
-  font-size: medium;
-  display: flex;
-}
-*/
-
-.check-image label > input{
-    visibility: hidden;
-}
-
-.check-image label > input + i {
-    display:inline-block;
-    cursor:pointer;
-    width: 15px;
-    height: 15px;
-
-    background:url('../../images/play-empty.png') no-repeat;
-    background-size:cover;
-    transition:0.5s;
-}
-.check-image label > input:checked + i {
-    background:url('../../images/play-full.png') no-repeat;
-    background-size:cover;
+  padding: 0px 6px;
+  font-size: small;
 }
