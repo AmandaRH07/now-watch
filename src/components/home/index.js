@@ -1,5 +1,5 @@
 import React from "react";
-import SideBar from "../sidebar";
+import Sidebar from "../sidebar";
 import Cards from "../cards";
 import './style.css';
 
@@ -10,7 +10,7 @@ export default function Home() {
         <h1>Now Watch</h1>
       </div>
       <div className="content-body">
-        <SideBar />
+        <Sidebar/>
         <Cards />
       </div>
     </div>
