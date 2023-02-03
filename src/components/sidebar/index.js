@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext  } from 'react';
 import { Checkbox } from '@mui/material';
 import { PlayArrowOutlined, PlayArrow } from '@mui/icons-material';
 import FormGroup from '@mui/material/FormGroup';
@@ -6,25 +6,11 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import './style.css';
+import FilterContext from '../../contexts/filter-context';
 
 const Sidebar = () => {
-  const [checkboxs, setCheckboxs] = useState({
-    Netflix: false,
-    AmazonPrime: false,
-    Hbo: false,
-    Disney: false,
-    StarPlus: false,
-    GloboPlay: false,
-    Filmes: false,
-    Series: false,
-    Acao: false,
-    Animacao: false,
-    Comedia: false,
-    Drama: false,
-    FiccaoCientifica: false,
-    Romance: false,
-    Terror: false,
-  });
+
+  const { checkboxs, setCheckboxs } = useContext(FilterContext);
 
   const handleChangeCheckbox = (field, value) => {
     setCheckboxs(prevState => (
@@ -71,7 +57,7 @@ const Sidebar = () => {
             label="HBO Max"
             control={
               <Checkbox icon={<PlayArrowOutlined />}
-                onClick={() => handleChangeCheckbox("Netflix", !checkboxs.Hbo)}
+                onClick={() => handleChangeCheckbox("Hbo", !checkboxs.Hbo)}
                 checkedIcon={<PlayArrow />} />}
           />
           <FormControlLabel
@@ -183,10 +169,10 @@ const Sidebar = () => {
           direction="row"
           spacing={2}
           className="buttons-content">
-          <Button 
+          <Button
             variant="contained"
             onClick={() => handleCleanFilter()}>Limpar</Button>
-          <Button 
+          <Button
             variant="contained"
             onClick={() => handleSaveFilter()} >Enviar</Button>
         </Stack>
