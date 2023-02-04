@@ -5,16 +5,26 @@ import './style.css';
 const data = {
   Poster: "images/download.jpg",
   Name: "Forrest Gump - O Contador de Histórias",
-  Age: 14,
+  Age: 12,
   Year: 1994,
+  
   Category: [
     "Romance",
     "Drama"
   ],
   Streams: [
-    "Netflix",
-    "Amazon Prime",
-    "Apple TV"
+    {
+      name: "Netflix",
+      link: "https://www.netflix.com/br/title/60000724"
+    },
+    {
+      name: "Amazon Prime",
+      link: "https://www.primevideo.com/detail/Forrest-Gump/0NHF7IFLIDER9XNBFBK2HLMQXC"
+    },
+    {
+      name: "Apple TV",
+      link: []
+    }
   ]
 }
 

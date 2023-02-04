@@ -2,21 +2,52 @@ import React from "react";
 import './style.css';
 import ConvertParentalPating from '../../../utils'
 import capa from '../../../../src/images/download.jpg'
+import Chip from '@mui/material/Chip';
 
 export function Card(data) {
+
+  const consumeData = data.data;
   return (
     <div className="card">
       <img src={capa} />
       <div className="card-infos">
-        <p className="card-first">{data.data.Name}</p>
+        <p className="card-first">{consumeData.Name}</p>
         <div className="card-row">
-          <p>{data.data.Year}</p>
+          <p>{consumeData.Year}</p>
           <div className="card-row-second">
-            {ConvertParentalPating("L")}
+            {ConvertParentalPating(`${consumeData.Age}`)}
           </div>
         </div>
-        <p className="card-second">{data.data.Category}</p>
-        <p>{data.data.Streams}</p>
+        <div className="card-categories">
+          {consumeData.Category.map((item, index) =>
+            <Chip
+
+              key={index}
+              label={item}
+              variant="outlined"
+              size="small" />
+          )}
+
+        </div>
+        <div className="card-streamings">
+          {consumeData.Streams.map((item, index) =>
+          (item.link.length == 0
+            ? <Chip
+              label={item.name}
+              key={index}
+              size="small"
+            />
+            : <Chip
+              key={index}
+              label={item.name}
+              component="a"
+              href={item.link}
+              variant="outlined"
+              clickable
+              size="small"
+            />
+          ))}
+        </div>
       </div>
     </div>
   )
