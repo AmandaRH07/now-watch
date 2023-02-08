@@ -3,12 +3,12 @@ import './style.css';
 import ConvertParentalPating from '../../../utils'
 import capa from '../../../../src/images/download.jpg'
 import Chip from '@mui/material/Chip';
+import Card from '@mui/material/Card';
 
-export function Card(data) {
-
+export function CardConfig(data) {
   const consumeData = data.data;
   return (
-    <div className="card">
+    <Card className="card">
       <img src={capa} />
       <div className="card-infos">
         <p className="card-first">{consumeData.Name}</p>
@@ -21,13 +21,13 @@ export function Card(data) {
         <div className="card-categories">
           {consumeData.Category.map((item, index) =>
             <Chip
-
               key={index}
               label={item}
               variant="outlined"
-              size="small" />
+              size="small"
+              sx={{ marginRight: 1, marginTop: 1 }}
+            />
           )}
-
         </div>
         <div className="card-streamings">
           {consumeData.Streams.map((item, index) =>
@@ -36,6 +36,7 @@ export function Card(data) {
               label={item.name}
               key={index}
               size="small"
+              sx={{ marginRight: 1, marginTop: 1 }}
             />
             : <Chip
               key={index}
@@ -45,10 +46,11 @@ export function Card(data) {
               variant="outlined"
               clickable
               size="small"
+              sx={{ marginRight: 1, marginTop: 1 }}
             />
           ))}
         </div>
       </div>
-    </div>
+    </Card>
   )
 }

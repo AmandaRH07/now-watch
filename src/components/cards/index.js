@@ -1,5 +1,5 @@
 import React from "react";
-import { Card } from "./card";
+import { CardConfig } from "./card";
 import './style.css';
 
 const data = {
@@ -24,6 +24,14 @@ const data = {
     {
       name: "Apple TV",
       link: []
+    },
+    {
+      name: "Apple TV",
+      link: []
+    },
+    {
+      name: "Apple TV",
+      link: []
     }
   ]
 }
@@ -34,15 +42,15 @@ export default function Cards() {
     <h2> Opções</h2>
 
       <div className="card-content">
-        <Card
+        <CardConfig
           data={data} />
-        <Card 
+        <CardConfig 
           data={data} />
-        <Card 
+        <CardConfig 
           data={data} />
-        <Card 
+        <CardConfig 
           data={data} />
-        <Card 
+        <CardConfig 
           data={data} />
       </div>
     </div>
