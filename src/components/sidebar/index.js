@@ -1,4 +1,4 @@
-import React, { useState, useContext  } from 'react';
+import React, { useState, useContext } from 'react';
 import { Checkbox } from '@mui/material';
 import { PlayArrowOutlined, PlayArrow } from '@mui/icons-material';
 import FormGroup from '@mui/material/FormGroup';
@@ -21,18 +21,20 @@ const Sidebar = () => {
     ))
   }
 
-
-  const handleCleanFilter = ( ) => {
+  const handleCleanFilter = () => {
+    const filters2 = Object.keys(checkboxs).filter((item) => setCheckboxs([]));
+    console.log("Filtros", filters2);
   }
-
-  const handleSaveFilter = ( ) => {
+  
+  const handleSaveFilter = () => {
     const filters = Object.keys(checkboxs).filter((item) => checkboxs[item]);
     console.log("Filtros", filters);
   }
-
+  
+  console.log("checkboxs", checkboxs)
   return (
     <div className="sidebar-container" >
-      <h2 className="titles-container"> Select your streamings options </h2>
+      <h2 className="titles-container"> Selecione as opções que se encaixam no que você quer assistir! </h2>
       <div className="options-content">
         <FormGroup>
           <h3> Steamings</h3>
@@ -41,6 +43,7 @@ const Sidebar = () => {
             label="Netflix"
             control={
               <Checkbox icon={<PlayArrowOutlined />}
+                checked={checkboxs.Netflix}
                 onClick={() => handleChangeCheckbox("Netflix", !checkboxs.Netflix)}
                 checkedIcon={<PlayArrow />} />}
           />
@@ -49,6 +52,7 @@ const Sidebar = () => {
             label="Amazon Prime"
             control={
               <Checkbox icon={<PlayArrowOutlined />}
+                checked={checkboxs.AmazonPrime}
                 onClick={() => handleChangeCheckbox("AmazonPrime", !checkboxs.AmazonPrime)}
                 checkedIcon={<PlayArrow />} />}
           />
@@ -57,6 +61,7 @@ const Sidebar = () => {
             label="HBO Max"
             control={
               <Checkbox icon={<PlayArrowOutlined />}
+                checked={checkboxs.Hbo}
                 onClick={() => handleChangeCheckbox("Hbo", !checkboxs.Hbo)}
                 checkedIcon={<PlayArrow />} />}
           />
@@ -65,6 +70,7 @@ const Sidebar = () => {
             label="Disney Plus"
             control={
               <Checkbox icon={<PlayArrowOutlined />}
+                checked={checkboxs.Disney}
                 onClick={() => handleChangeCheckbox("Disney", !checkboxs.Disney)}
                 checkedIcon={<PlayArrow />} />}
           />
@@ -73,6 +79,7 @@ const Sidebar = () => {
             label="Star Plus"
             control={
               <Checkbox icon={<PlayArrowOutlined />}
+                checked={checkboxs.StarPlus}
                 onClick={() => handleChangeCheckbox("StarPlus", !checkboxs.StarPlus)}
                 checkedIcon={<PlayArrow />} />}
           />
@@ -81,6 +88,7 @@ const Sidebar = () => {
             label="Globo Play"
             control={
               <Checkbox icon={<PlayArrowOutlined />}
+                checked={checkboxs.GloboPlay}
                 onClick={() => handleChangeCheckbox("GloboPlay", !checkboxs.GloboPlay)}
                 checkedIcon={<PlayArrow />} />}
           />
@@ -91,6 +99,7 @@ const Sidebar = () => {
             label="Filmes"
             control={
               <Checkbox icon={<PlayArrowOutlined />}
+                checked={checkboxs.Filmes}
                 onClick={() => handleChangeCheckbox("Filmes", !checkboxs.Filmes)}
                 checkedIcon={<PlayArrow />} />}
           />
@@ -100,6 +109,7 @@ const Sidebar = () => {
             label="Séries"
             control={
               <Checkbox icon={<PlayArrowOutlined />}
+                checked={checkboxs.Series}
                 onClick={() => handleChangeCheckbox("Series", !checkboxs.Series)}
                 checkedIcon={<PlayArrow />} />}
           />
@@ -110,6 +120,7 @@ const Sidebar = () => {
             label="Ação"
             control={
               <Checkbox icon={<PlayArrowOutlined />}
+                checked={checkboxs.Acao}
                 onClick={() => handleChangeCheckbox("Acao", !checkboxs.Acao)}
                 checkedIcon={<PlayArrow />} />} />
           <FormControlLabel
@@ -117,6 +128,7 @@ const Sidebar = () => {
             label="Animação"
             control={
               <Checkbox icon={<PlayArrowOutlined />}
+                checked={checkboxs.Animacao}
                 onClick={() => handleChangeCheckbox("Animacao", !checkboxs.Animacao)}
                 checkedIcon={<PlayArrow />} />}
           />
@@ -125,6 +137,7 @@ const Sidebar = () => {
             label="Comédia"
             control={
               <Checkbox icon={<PlayArrowOutlined />}
+                checked={checkboxs.Comedia}
                 onClick={() => handleChangeCheckbox("Comedia", !checkboxs.Comedia)}
                 checkedIcon={<PlayArrow />} />}
           />
@@ -133,6 +146,7 @@ const Sidebar = () => {
             label="Drama"
             control={
               <Checkbox icon={<PlayArrowOutlined />}
+                checked={checkboxs.Drama}
                 onClick={() => handleChangeCheckbox("Drama", !checkboxs.Drama)}
                 checkedIcon={<PlayArrow />} />}
           />
@@ -141,6 +155,7 @@ const Sidebar = () => {
             label="Ficção Científica"
             control={
               <Checkbox icon={<PlayArrowOutlined />}
+                checked={checkboxs.FiccaoCientifica}
                 onClick={() => handleChangeCheckbox("FiccaoCientifica", !checkboxs.FiccaoCientifica)}
                 checkedIcon={<PlayArrow />} />}
           />
@@ -150,6 +165,7 @@ const Sidebar = () => {
             label="Romance"
             control={
               <Checkbox icon={<PlayArrowOutlined />}
+                checked={checkboxs.Romance}
                 onClick={() => handleChangeCheckbox("Romance", !checkboxs.Romance)}
                 checkedIcon={<PlayArrow />} />}
 
@@ -160,6 +176,7 @@ const Sidebar = () => {
             label="Terror"
             control={
               <Checkbox icon={<PlayArrowOutlined />}
+                checked={checkboxs.Terror}
                 onClick={() => handleChangeCheckbox("Terror", !checkboxs.Terror)}
                 checkedIcon={<PlayArrow />} />}
           />

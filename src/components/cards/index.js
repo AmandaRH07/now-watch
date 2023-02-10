@@ -8,9 +8,15 @@ const data = {
   Age: 12,
   Year: 1994,
   
-  Category: [
+  Gender: [
     "Romance",
-    "Drama"
+    "Drama",
+    "Romance",
+    "Drama", 
+
+  ],
+  Category: [
+    "Filme",
   ],
   Streams: [
     {
@@ -39,7 +45,7 @@ const data = {
 export default function Cards() {
   return (
     <div className="cards-conteiner">
-    <h2> Opções</h2>
+    {/* <h2> Opções</h2> */}
 
       <div className="card-content">
         <CardConfig

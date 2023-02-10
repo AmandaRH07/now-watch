@@ -19,8 +19,14 @@ label {
 }
 
 .buttons-content{
-  background-color: rgb(229, 209, 209);
   display: flex;
   align-items: center;
   justify-content: center;
+} 
+
+
+.titles-container{
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
 }
