@@ -21,13 +21,19 @@ function App() {
     Romance: false,
     Terror: false,
   });
-
+  const [filter, setFilter] = useState([]);
 
   return (
     <div className="App">
 
-      <FilterContext.Provider value={{ checkboxs, setCheckboxs}}>
-      <Home/>
+      <FilterContext.Provider 
+        value={{ 
+          checkboxs, 
+          setCheckboxs,
+          filter,
+          setFilter
+        }}>
+        <Home/>
       </FilterContext.Provider>
     </div>
   );

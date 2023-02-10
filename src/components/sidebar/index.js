@@ -10,7 +10,7 @@ import FilterContext from '../../contexts/filter-context';
 
 const Sidebar = () => {
 
-  const { checkboxs, setCheckboxs } = useContext(FilterContext);
+  const { checkboxs, setCheckboxs, filter, setFilter } = useContext(FilterContext);
 
   const handleChangeCheckbox = (field, value) => {
     setCheckboxs(prevState => (
@@ -28,10 +28,18 @@ const Sidebar = () => {
   
   const handleSaveFilter = () => {
     const filters = Object.keys(checkboxs).filter((item) => checkboxs[item]);
-    console.log("Filtros", filters);
+    setFilter(prevState => (
+      {
+        ...prevState,
+        ...filters,
+      }
+    ))
+
+    console.log("filters", filters);
+    console.log("filter", filter);
   }
   
-  console.log("checkboxs", checkboxs)
+  // console.log("checkboxs", checkboxs)
   return (
     <div className="sidebar-container" >
       <h2 className="titles-container"> Selecione as opções que se encaixam no que você quer assistir! </h2>

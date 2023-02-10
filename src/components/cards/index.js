@@ -11,8 +11,8 @@ const data = {
   Gender: [
     "Romance",
     "Drama",
-    "Romance",
-    "Drama", 
+    "Terror",
+    "Comédia", 
 
   ],
   Category: [
@@ -32,8 +32,37 @@ const data = {
       link: []
     },
     {
-      name: "Apple TV",
+      name: "HBO",
       link: []
+    },
+    {
+      name: "Star+",
+      link: []
+    }
+  ]
+}
+
+const data2 = {
+  Poster: "images/download.jpg",
+  Name: "Forrest Gump - O Contador de Histórias",
+  Age: 12,
+  Year: 1994,
+  
+  Gender: [
+    "Romance",
+    "Drama",
+  ],
+  Category: [
+    "Série",
+  ],
+  Streams: [
+    {
+      name: "Netflix",
+      link: "https://www.netflix.com/br/title/60000724"
+    },
+    {
+      name: "Amazon Prime",
+      link: "https://www.primevideo.com/detail/Forrest-Gump/0NHF7IFLIDER9XNBFBK2HLMQXC"
     },
     {
       name: "Apple TV",
@@ -49,11 +78,11 @@ export default function Cards() {
         <CardConfig
           data={data} />
         <CardConfig 
-          data={data} />
+          data={data2} />
         <CardConfig 
           data={data} />
         <CardConfig 
-          data={data} />
+          data={data2} />
         <CardConfig 
           data={data} />
       </div>
