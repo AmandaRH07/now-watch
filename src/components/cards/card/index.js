@@ -14,7 +14,7 @@ export function CardConfig(data) {
       <div className="card-infos">
         <p className="card-first">{consumeData.Name}</p>
 
-        <div className="card-row">
+        <div className="card-row-divided">
           {consumeData.Category.map((item, index) =>
             <Chip
               key={index}
@@ -30,7 +30,7 @@ export function CardConfig(data) {
         </div>
         <Divider variant="middle" sx={{ marginTop: 1 }} />
 
-        <div className="card-row">
+        <div className="card-row-divided">
           <div className="card-row-first">
             {consumeData.Gender.map((item, index) =>
               <Chip
@@ -46,8 +46,10 @@ export function CardConfig(data) {
             <p>{consumeData.Year}</p>
           </div>
         </div>
+
         <Divider variant="middle" sx={{ marginTop: 1 }} />
-        <div>
+
+        <div className="card-row-all">
           {consumeData.Streams.map((item, index) =>
           (item.link.length == 0
             ? <Chip

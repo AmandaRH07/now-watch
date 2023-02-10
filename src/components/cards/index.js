@@ -45,8 +45,6 @@ const data = {
 export default function Cards() {
   return (
     <div className="cards-conteiner">
-    {/* <h2> Opções</h2> */}
-
       <div className="card-content">
         <CardConfig
           data={data} />
