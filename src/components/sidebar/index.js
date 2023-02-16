@@ -10,10 +10,36 @@ import FilterContext from '../../contexts/filter-context';
 
 const Sidebar = () => {
 
-  const { checkboxs, setCheckboxs, filter, setFilter } = useContext(FilterContext);
+  const { 
+    checkboxService, 
+    setCheckboxService,
+    checkboxType,
+    setCheckboxType,
+    checkboxGenre, 
+    setCheckboxGenre, 
+    filter, 
+    setFilter } = useContext(FilterContext);
 
-  const handleChangeCheckbox = (field, value) => {
-    setCheckboxs(prevState => (
+  const handleChangeCheckboxService = (field, value) => {
+    setCheckboxService(prevState => (
+      {
+        ...prevState,
+        [field]: value,
+      }
+    ))
+  }
+
+  const handleChangeCheckboxType = (field, value) => {
+    setCheckboxType(prevState => (
+      {
+        ...prevState,
+        [field]: value,
+      }
+    ))
+  }
+
+  const handleChangeCheckboxGenre = (field, value) => {
+    setCheckboxGenre(prevState => (
       {
         ...prevState,
         [field]: value,
@@ -22,24 +48,18 @@ const Sidebar = () => {
   }
 
   const handleCleanFilter = () => {
-    const filters2 = Object.keys(checkboxs).filter((item) => setCheckboxs([]));
-    console.log("Filtros", filters2);
   }
-  
+
   const handleSaveFilter = () => {
-    const filters = Object.keys(checkboxs).filter((item) => checkboxs[item]);
+    const filtersCheckboxType = Object.keys(checkboxType).filter((item) => checkboxType[item] === true);     
     setFilter(prevState => (
       {
         ...prevState,
-        ...filters,
+        ...filtersCheckboxType
       }
     ))
-
-    console.log("filters", filters);
-    console.log("filter", filter);
   }
-  
-  // console.log("checkboxs", checkboxs)
+
   return (
     <div className="sidebar-container" >
       <h2 className="titles-container"> Selecione as opções que se encaixam no que você quer assistir! </h2>
@@ -51,8 +71,8 @@ const Sidebar = () => {
             label="Netflix"
             control={
               <Checkbox icon={<PlayArrowOutlined />}
-                checked={checkboxs.Netflix}
-                onClick={() => handleChangeCheckbox("Netflix", !checkboxs.Netflix)}
+                checked={checkboxService.Netflix}
+                onClick={() => handleChangeCheckboxService("Netflix", !checkboxService.Netflix)}
                 checkedIcon={<PlayArrow />} />}
           />
           <FormControlLabel
@@ -60,8 +80,8 @@ const Sidebar = () => {
             label="Amazon Prime"
             control={
               <Checkbox icon={<PlayArrowOutlined />}
-                checked={checkboxs.AmazonPrime}
-                onClick={() => handleChangeCheckbox("AmazonPrime", !checkboxs.AmazonPrime)}
+                checked={checkboxService.AmazonPrime}
+                onClick={() => handleChangeCheckboxService("AmazonPrime", !checkboxService.AmazonPrime)}
                 checkedIcon={<PlayArrow />} />}
           />
           <FormControlLabel
@@ -69,8 +89,8 @@ const Sidebar = () => {
             label="HBO Max"
             control={
               <Checkbox icon={<PlayArrowOutlined />}
-                checked={checkboxs.Hbo}
-                onClick={() => handleChangeCheckbox("Hbo", !checkboxs.Hbo)}
+                checked={checkboxService.Hbo}
+                onClick={() => handleChangeCheckboxService("Hbo", !checkboxService.Hbo)}
                 checkedIcon={<PlayArrow />} />}
           />
           <FormControlLabel
@@ -78,8 +98,8 @@ const Sidebar = () => {
             label="Disney Plus"
             control={
               <Checkbox icon={<PlayArrowOutlined />}
-                checked={checkboxs.Disney}
-                onClick={() => handleChangeCheckbox("Disney", !checkboxs.Disney)}
+                checked={checkboxService.Disney}
+                onClick={() => handleChangeCheckboxService("Disney", !checkboxService.Disney)}
                 checkedIcon={<PlayArrow />} />}
           />
           <FormControlLabel
@@ -87,38 +107,29 @@ const Sidebar = () => {
             label="Star Plus"
             control={
               <Checkbox icon={<PlayArrowOutlined />}
-                checked={checkboxs.StarPlus}
-                onClick={() => handleChangeCheckbox("StarPlus", !checkboxs.StarPlus)}
-                checkedIcon={<PlayArrow />} />}
-          />
-          <FormControlLabel
-            value="GloboPlay"
-            label="Globo Play"
-            control={
-              <Checkbox icon={<PlayArrowOutlined />}
-                checked={checkboxs.GloboPlay}
-                onClick={() => handleChangeCheckbox("GloboPlay", !checkboxs.GloboPlay)}
+                checked={checkboxService.StarPlus}
+                onClick={() => handleChangeCheckboxService("StarPlus", !checkboxService.StarPlus)}
                 checkedIcon={<PlayArrow />} />}
           />
 
           <h3> Categorias </h3>
           <FormControlLabel
-            value="Filmes"
-            label="Filmes"
+            value="movie"
+            label="Filme"
             control={
               <Checkbox icon={<PlayArrowOutlined />}
-                checked={checkboxs.Filmes}
-                onClick={() => handleChangeCheckbox("Filmes", !checkboxs.Filmes)}
+                checked={checkboxType.movie}
+                onClick={() => handleChangeCheckboxType("movie", !checkboxType.movie)}
                 checkedIcon={<PlayArrow />} />}
           />
 
           <FormControlLabel
-            value="Series"
+            value="series"
             label="Séries"
             control={
               <Checkbox icon={<PlayArrowOutlined />}
-                checked={checkboxs.Series}
-                onClick={() => handleChangeCheckbox("Series", !checkboxs.Series)}
+                checked={checkboxType.series}
+                onClick={() => handleChangeCheckboxType("series", !checkboxType.series)}
                 checkedIcon={<PlayArrow />} />}
           />
 
@@ -128,16 +139,16 @@ const Sidebar = () => {
             label="Ação"
             control={
               <Checkbox icon={<PlayArrowOutlined />}
-                checked={checkboxs.Acao}
-                onClick={() => handleChangeCheckbox("Acao", !checkboxs.Acao)}
+                checked={checkboxGenre.Acao}
+                onClick={() => handleChangeCheckboxGenre("Acao", !checkboxGenre.Acao)}
                 checkedIcon={<PlayArrow />} />} />
           <FormControlLabel
             value="Animacao"
             label="Animação"
             control={
               <Checkbox icon={<PlayArrowOutlined />}
-                checked={checkboxs.Animacao}
-                onClick={() => handleChangeCheckbox("Animacao", !checkboxs.Animacao)}
+                checked={checkboxGenre.Animacao}
+                onClick={() => handleChangeCheckboxGenre("Animacao", !checkboxGenre.Animacao)}
                 checkedIcon={<PlayArrow />} />}
           />
           <FormControlLabel
@@ -145,8 +156,8 @@ const Sidebar = () => {
             label="Comédia"
             control={
               <Checkbox icon={<PlayArrowOutlined />}
-                checked={checkboxs.Comedia}
-                onClick={() => handleChangeCheckbox("Comedia", !checkboxs.Comedia)}
+                checked={checkboxGenre.Comedia}
+                onClick={() => handleChangeCheckboxGenre("Comedia", !checkboxGenre.Comedia)}
                 checkedIcon={<PlayArrow />} />}
           />
           <FormControlLabel
@@ -154,8 +165,8 @@ const Sidebar = () => {
             label="Drama"
             control={
               <Checkbox icon={<PlayArrowOutlined />}
-                checked={checkboxs.Drama}
-                onClick={() => handleChangeCheckbox("Drama", !checkboxs.Drama)}
+                checked={checkboxGenre.Drama}
+                onClick={() => handleChangeCheckboxGenre("Drama", !checkboxGenre.Drama)}
                 checkedIcon={<PlayArrow />} />}
           />
           <FormControlLabel
@@ -163,8 +174,8 @@ const Sidebar = () => {
             label="Ficção Científica"
             control={
               <Checkbox icon={<PlayArrowOutlined />}
-                checked={checkboxs.FiccaoCientifica}
-                onClick={() => handleChangeCheckbox("FiccaoCientifica", !checkboxs.FiccaoCientifica)}
+                checked={checkboxGenre.FiccaoCientifica}
+                onClick={() => handleChangeCheckboxGenre("FiccaoCientifica", !checkboxGenre.FiccaoCientifica)}
                 checkedIcon={<PlayArrow />} />}
           />
 
@@ -173,8 +184,8 @@ const Sidebar = () => {
             label="Romance"
             control={
               <Checkbox icon={<PlayArrowOutlined />}
-                checked={checkboxs.Romance}
-                onClick={() => handleChangeCheckbox("Romance", !checkboxs.Romance)}
+                checked={checkboxGenre.Romance}
+                onClick={() => handleChangeCheckboxGenre("Romance", !checkboxGenre.Romance)}
                 checkedIcon={<PlayArrow />} />}
 
           />
@@ -184,8 +195,8 @@ const Sidebar = () => {
             label="Terror"
             control={
               <Checkbox icon={<PlayArrowOutlined />}
-                checked={checkboxs.Terror}
-                onClick={() => handleChangeCheckbox("Terror", !checkboxs.Terror)}
+                checked={checkboxGenre.Terror}
+                onClick={() => handleChangeCheckboxGenre("Terror", !checkboxGenre.Terror)}
                 checkedIcon={<PlayArrow />} />}
           />
         </FormGroup>

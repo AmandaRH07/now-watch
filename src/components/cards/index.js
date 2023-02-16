@@ -1,19 +1,20 @@
-import React, {useEffect} from "react";
+import React, { useEffect, useContext } from "react";
 import api from "../../fetch";
 import { CardConfig } from "./card";
 import './style.css';
+import FilterContext from '../../contexts/filter-context';
 
 const data = {
   Poster: "images/download.jpg",
   Name: "Forrest Gump - O Contador de Histórias",
   Age: 12,
   Year: 1994,
-  
+
   Gender: [
     "Romance",
     "Drama",
     "Terror",
-    "Comédia", 
+    "Comédia",
 
   ],
   Category: [
@@ -48,7 +49,7 @@ const data2 = {
   Name: "Forrest Gump - O Contador de Histórias",
   Age: 12,
   Year: 1994,
-  
+
   Gender: [
     "Romance",
     "Drama",
@@ -72,37 +73,42 @@ const data2 = {
   ]
 }
 
-const options = {
-    method: 'GET',
-    url: 'https://streaming-availability.p.rapidapi.com/search/basic',
-    params: {
-      country: 'us',
-      service: 'netflix',
-      type: 'movie',
-      genre: '18',
-      page: '1',
-      output_language: 'en',
-      language: 'en'
-    },
-    headers: {
-      'X-RapidAPI-Key': 'a08b4892damsh53c57fca6e1477ap162e77jsn6c2433727c0a',
-      'X-RapidAPI-Host': 'streaming-availability.p.rapidapi.com'
-    }
-  };
+function GetType(filter) {
+  return Object.keys(filter).map(x => filter[x]).toString();
+}
 
-
-  function fecthData(){
+function fecthData(filter) {
+  if(Object.keys(filter).length !== 0){
+    const options = {
+      method: 'GET',
+      url: 'https://streaming-availability.p.rapidapi.com/search/basic',
+      params: {
+        country: 'us',
+        service: 'netflix',
+        type: GetType(filter),
+        genre: '18',
+        page: '1',
+        output_language: 'en',
+        language: 'en'
+      },
+      headers: {
+        'X-RapidAPI-Key': 'a08b4892damsh53c57fca6e1477ap162e77jsn6c2433727c0a',
+        'X-RapidAPI-Host': 'streaming-availability.p.rapidapi.com'
+      }
+    };
     api.request(options).then(function (response) {
       console.log(response.data);
     }).catch(function (error) {
       console.error(error);
-    }); 
+    });
+  }
 }
 
 export default function Cards() {
+  const { filter } = useContext(FilterContext);
 
   useEffect(() => {
-    fecthData();
+    fecthData(filter);
   });
 
   return (
@@ -110,13 +116,13 @@ export default function Cards() {
       <div className="card-content">
         <CardConfig
           data={data} />
-        <CardConfig 
+        <CardConfig
           data={data2} />
-        <CardConfig 
+        <CardConfig
           data={data} />
-        <CardConfig 
+        <CardConfig
           data={data2} />
-        <CardConfig 
+        <CardConfig
           data={data} />
       </div>
     </div>
