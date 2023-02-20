@@ -5,11 +5,12 @@ import { useState } from 'react';
 
 function App() {
   const [checkboxService, setCheckboxService] = useState({
-    Netflix: false,
-    AmazonPrime: false,
-    Hbo: false,
-    Disney: false,
-    StarPlus: false
+    apple: false,
+    prime: false,
+    disney: false,
+    hbo: false,
+    netflix: false,
+    starz: false
   });
 
   const [checkboxType, setCheckboxType] = useState({
@@ -18,17 +19,21 @@ function App() {
   });
 
   const [checkboxGenre, setCheckboxGenre] = useState({
-    Acao: false,
-    Animacao: false,
-    Comedia: false,
-    Drama: false,
-    FiccaoCientifica: false,
-    Romance: false,
-    Terror: false,
+    Acao28: false,
+    Animacao16: false,
+    Biografia1: false,
+    Comedia38: false,
+    Documentario99:false,
+    Drama18: false,
+    FiccaoCientifica878: false,
+    Romance10749: false,
+    Terror27: false,
 
   });
 
-  const [filter, setFilter] = useState([]);
+  const [filterService, setFilterService] = useState([]);
+  const [filterType, setFilterType] = useState([]);
+  const [filterGenre, setFilterGenre] = useState([]);
 
   return (
     <div className="App">
@@ -41,8 +46,12 @@ function App() {
           setCheckboxType,
           checkboxGenre,
           setCheckboxGenre,
-          filter,
-          setFilter
+          filterService, 
+          setFilterService,
+          filterType, 
+          setFilterType,
+          filterGenre, 
+          setFilterGenre
         }}>
         <Home />
       </FilterContext.Provider>
