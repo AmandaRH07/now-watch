@@ -58,31 +58,16 @@ const Sidebar = () => {
     }
   }
 
-  const handleChangeFiltersValues = (option, field, value) => {
+  const handleChangeFiltersValues = (option, field) => {
     switch (option) {
       case 'service':
-        setFilterService(prevState => (
-          {
-            ...prevState,
-            [field]: value,
-          }
-        ))
+        setFilterService(field)
         break;
       case 'type':
-        setFilterType(prevState => (
-          {
-            ...prevState,
-            [field]: value,
-          }
-        ))
+        setFilterType(field)
         break;
       case 'genre':
-        setFilterGenre(prevState => (
-          {
-            ...prevState,
-            [field]: value,
-          }
-        ))
+        setFilterGenre(field)
         break;
       default:
         break;
@@ -93,26 +78,32 @@ const Sidebar = () => {
   const handleCleanFilter = () => {
     const filtersCheckboxService = getSidebarOptions(checkboxService);
     handleChangeCheckboxesValues("service", ...filtersCheckboxService, false);
-    handleChangeFiltersValues("service", ...filtersCheckboxService, false);
+    handleChangeFiltersValues("service", undefined);
     
     const filtersCheckboxType = getSidebarOptions(checkboxType);
     handleChangeCheckboxesValues("type", ...filtersCheckboxType, false);
-    handleChangeFiltersValues("type", ...filtersCheckboxType, false);
+    handleChangeFiltersValues("type", undefined);
 
     const filtersCheckboxGenre = getSidebarOptions(checkboxGenre);
     handleChangeCheckboxesValues("genre", ...filtersCheckboxGenre, false);
-    handleChangeFiltersValues("genre", ...filtersCheckboxGenre, false);
+    handleChangeFiltersValues("genre", undefined);
   }
 
   const handleSaveFilter = () => {
     const filtersCheckboxService = getSidebarOptions(checkboxService);
-    handleChangeFiltersValues("service", ...filtersCheckboxService, true);
+    if(Object.keys(filtersCheckboxService).length !== 0){
+      handleChangeFiltersValues("service", ...filtersCheckboxService)
+    }
 
     const filtersCheckboxType = getSidebarOptions(checkboxType);
-    handleChangeFiltersValues("type", ...filtersCheckboxType, true);
+    if(Object.keys(filtersCheckboxType).length !== 0){
+      handleChangeFiltersValues("type", ...filtersCheckboxType);
+    }
 
     const filtersCheckboxGenre = getSidebarOptions(checkboxGenre);
-    handleChangeFiltersValues("genre", ...filtersCheckboxGenre, true);
+    if(Object.keys(filtersCheckboxGenre).length !== 0){
+      handleChangeFiltersValues("genre", ...filtersCheckboxGenre);
+    }
   }
 
   return (

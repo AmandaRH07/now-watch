@@ -4,28 +4,23 @@ import api from '../../fetch'
 import './style.css';
 import FilterContext from '../../contexts/filter-context';
 
-
-
 export default function Cards() {
   const { filterService, filterType, filterGenre } = useContext(FilterContext);
   const [responseData, setResponseData] = useState([]);
 
-  function GetOptionsParams(filterOption, isNumericFilter) {
-    const result = Object.entries(filterOption).map(x => filterOption[x]).toString();
-
-    return isNumericFilter ? result : result.replace(/[^0-9]/g, '');
+  function GetOptionsParams(filterOption, defaultOpttion) {
+    return filterOption !== undefined ? filterOption : defaultOpttion;
   }
 
   const GetData = () => {
-    console.log(filterService, filterType, filterGenre);
     const params = {
       method: 'GET',
       url: 'https://streaming-availability.p.rapidapi.com/search/basic',
       params: {
         country: 'us',
-        service: filterService !== undefined ? GetOptionsParams(filterService, false) : "netflix",
-        type: filterType !== undefined ? GetOptionsParams(filterType, false) : "movie",
-        genre: GetOptionsParams(filterGenre, true),
+        service: GetOptionsParams(filterService, "netflix"),
+        type: GetOptionsParams(filterType, "movie"),
+        genre: GetOptionsParams(filterGenre, "").replace(/[^0-9]/g, ''),
         page: '1',
         output_language: 'en',
         language: 'en'
@@ -36,20 +31,19 @@ export default function Cards() {
       }
     };
 
-    if (Object.keys(filterType).length !== 0) {
-      api.request(params).then(response => {
-        setResponseData(prevState => (
-          {
-            ...prevState,
-            ...response.data
-          }
-        ))
-        return response
-      })
-        .catch(function (err) {
-          return err;
-        });
-    }
+    api.request(params).then(response => {
+      setResponseData(prevState => (
+        {
+
+          ...prevState,
+          ...response.data.results
+        }
+      ))
+      return response
+    })
+      .catch(function (err) {
+        return err;
+      });
   }
 
   useEffect(() => {
@@ -59,8 +53,14 @@ export default function Cards() {
   return (
     <div className="cards-conteiner">
       <div className="card-content">
-        {/* <CardConfig
-          data={responseData.results[1]} /> */}
+        {responseData.length !== 0
+          &&
+          Object.entries(responseData).map(item => item[1]
+            &&
+            <CardConfig
+              data={item[1]} />
+          )
+        }
       </div>
     </div>
   )
