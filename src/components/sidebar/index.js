@@ -19,64 +19,100 @@ const Sidebar = () => {
     setCheckboxGenre,
     setFilterService,
     setFilterType,
-    setFilterGenre
+    setFilterGenre,
+    filterGenre
   } = useContext(FilterContext);
 
-  const handleChangeCheckboxService = (field, value) => {
-    setCheckboxService(prevState => (
-      {
-        ...prevState,
-        [field]: value,
-      }
-    ))
+  const getSidebarOptions = (field) => {
+    return Object.keys(field).filter((item) => field[item] === true);
   }
 
-  const handleChangeCheckboxType = (field, value) => {
-    setCheckboxType(prevState => (
-      {
-        ...prevState,
-        [field]: value,
-      }
-    ))
+  const handleChangeCheckboxesValues = (option, field, value) => {
+    switch (option) {
+      case 'service':
+        setCheckboxService(prevState => (
+          {
+            ...prevState,
+            [field]: value,
+          }
+        ))
+        break;
+      case 'type':
+        setCheckboxType(prevState => (
+          {
+            ...prevState,
+            [field]: value,
+          }
+        ))
+        break;
+      case 'genre':
+        setCheckboxGenre(prevState => (
+          {
+            ...prevState,
+            [field]: value,
+          }
+        ))
+        break;
+      default:
+        break;
+    }
   }
 
-  const handleChangeCheckboxGenre = (field, value) => {
-    setCheckboxGenre(prevState => (
-      {
-        ...prevState,
-        [field]: value,
-      }
-    ))
+  const handleChangeFiltersValues = (option, field, value) => {
+    switch (option) {
+      case 'service':
+        setFilterService(prevState => (
+          {
+            ...prevState,
+            [field]: value,
+          }
+        ))
+        break;
+      case 'type':
+        setFilterType(prevState => (
+          {
+            ...prevState,
+            [field]: value,
+          }
+        ))
+        break;
+      case 'genre':
+        setFilterGenre(prevState => (
+          {
+            ...prevState,
+            [field]: value,
+          }
+        ))
+        break;
+      default:
+        break;
+    }
   }
+
 
   const handleCleanFilter = () => {
+    const filtersCheckboxService = getSidebarOptions(checkboxService);
+    handleChangeCheckboxesValues("service", ...filtersCheckboxService, false);
+    handleChangeFiltersValues("service", ...filtersCheckboxService, false);
+    
+    const filtersCheckboxType = getSidebarOptions(checkboxType);
+    handleChangeCheckboxesValues("type", ...filtersCheckboxType, false);
+    handleChangeFiltersValues("type", ...filtersCheckboxType, false);
+
+    const filtersCheckboxGenre = getSidebarOptions(checkboxGenre);
+    handleChangeCheckboxesValues("genre", ...filtersCheckboxGenre, false);
+    handleChangeFiltersValues("genre", ...filtersCheckboxGenre, false);
   }
 
   const handleSaveFilter = () => {
+    const filtersCheckboxService = getSidebarOptions(checkboxService);
+    handleChangeFiltersValues("service", ...filtersCheckboxService, true);
 
-    const filtersCheckboxService = Object.keys(checkboxService).filter((item) => checkboxService[item] === true);
-    setFilterService(prevState => (
-      {
-        ...prevState,
-        ...filtersCheckboxService
-      }
-    ))
+    const filtersCheckboxType = getSidebarOptions(checkboxType);
+    handleChangeFiltersValues("type", ...filtersCheckboxType, true);
 
-    const filtersCheckboxType = Object.keys(checkboxType).filter((item) => checkboxType[item] === true);
-    setFilterType(prevState => (
-      {
-        ...prevState,
-        ...filtersCheckboxType
-      }
-    ))
-
-    const filtersCheckboxGenre = Object.keys(checkboxGenre).filter((item) => checkboxGenre[item] === true);
-    setFilterGenre(prevState => (
-      {
-        ...prevState,
-        ...filtersCheckboxGenre
-      }
-    ))
+    const filtersCheckboxGenre = getSidebarOptions(checkboxGenre);
+    handleChangeFiltersValues("genre", ...filtersCheckboxGenre, true);
   }
 
   return (
@@ -91,7 +127,7 @@ const Sidebar = () => {
             control={
               <Checkbox icon={<PlayArrowOutlined />}
                 checked={checkboxService.prime}
-                onClick={() => handleChangeCheckboxService("prime", !checkboxService.prime)}
+                onClick={() => handleChangeCheckboxesValues("service", "prime", !checkboxService.prime)}
                 checkedIcon={<PlayArrow />} />}
           />
 
@@ -101,7 +137,7 @@ const Sidebar = () => {
             control={
               <Checkbox icon={<PlayArrowOutlined />}
                 checked={checkboxService.apple}
-                onClick={() => handleChangeCheckboxService("apple", !checkboxService.apple)}
+                onClick={() =>  handleChangeCheckboxesValues("service", "apple", !checkboxService.apple)}
                 checkedIcon={<PlayArrow />} />}
           />
 
@@ -111,7 +147,7 @@ const Sidebar = () => {
             control={
               <Checkbox icon={<PlayArrowOutlined />}
                 checked={checkboxService.disney}
-                onClick={() => handleChangeCheckboxService("disney", !checkboxService.disney)}
+                onClick={() =>  handleChangeCheckboxesValues("service", "disney", !checkboxService.disney)}
                 checkedIcon={<PlayArrow />} />}
           />
 
@@ -121,7 +157,7 @@ const Sidebar = () => {
             control={
               <Checkbox icon={<PlayArrowOutlined />}
                 checked={checkboxService.hbo}
-                onClick={() => handleChangeCheckboxService("hbo", !checkboxService.hbo)}
+                onClick={() =>  handleChangeCheckboxesValues("service", "hbo", !checkboxService.hbo)}
                 checkedIcon={<PlayArrow />} />}
           />
 
@@ -131,7 +167,7 @@ const Sidebar = () => {
             control={
               <Checkbox icon={<PlayArrowOutlined />}
                 checked={checkboxService.netflix}
-                onClick={() => handleChangeCheckboxService("netflix", !checkboxService.netflix)}
+                onClick={() =>  handleChangeCheckboxesValues("service", "netflix", !checkboxService.netflix)}
                 checkedIcon={<PlayArrow />} />}
           />
 
@@ -141,7 +177,7 @@ const Sidebar = () => {
             control={
               <Checkbox icon={<PlayArrowOutlined />}
                 checked={checkboxService.starz}
-                onClick={() => handleChangeCheckboxService("starz", !checkboxService.starz)}
+                onClick={() =>  handleChangeCheckboxesValues("service", "starz", !checkboxService.starz)}
                 checkedIcon={<PlayArrow />} />}
           />
 
@@ -152,7 +188,7 @@ const Sidebar = () => {
             control={
               <Checkbox icon={<PlayArrowOutlined />}
                 checked={checkboxType.movie}
-                onClick={() => handleChangeCheckboxType("movie", !checkboxType.movie)}
+                onClick={() => handleChangeCheckboxesValues("type", "movie", !checkboxType.movie)}
                 checkedIcon={<PlayArrow />} />}
           />
 
@@ -162,7 +198,7 @@ const Sidebar = () => {
             control={
               <Checkbox icon={<PlayArrowOutlined />}
                 checked={checkboxType.series}
-                onClick={() => handleChangeCheckboxType("series", !checkboxType.series)}
+                onClick={() => handleChangeCheckboxesValues("type", "series", !checkboxType.series)}
                 checkedIcon={<PlayArrow />} />}
           />
 
@@ -173,7 +209,7 @@ const Sidebar = () => {
             control={
               <Checkbox icon={<PlayArrowOutlined />}
                 checked={checkboxGenre.Acao28}
-                onClick={() => handleChangeCheckboxGenre("Acao28", !checkboxGenre.Acao28)}
+                onClick={() => handleChangeCheckboxesValues("genre", "Acao28", !checkboxGenre.Acao28)}
                 checkedIcon={<PlayArrow />} />} 
           />
 
@@ -183,7 +219,7 @@ const Sidebar = () => {
             control={
               <Checkbox icon={<PlayArrowOutlined />}
                 checked={checkboxGenre.Animacao16}
-                onClick={() => handleChangeCheckboxGenre("Animacao16", !checkboxGenre.Animacao16)}
+                onClick={() => handleChangeCheckboxesValues("genre", "Animacao16", !checkboxGenre.Animacao16)}
                 checkedIcon={<PlayArrow />} />}
           />
 
@@ -193,7 +229,7 @@ const Sidebar = () => {
             control={
               <Checkbox icon={<PlayArrowOutlined />}
                 checked={checkboxGenre.Biografia1}
-                onClick={() => handleChangeCheckboxGenre("Biografia1", !checkboxGenre.Biografia1)}
+                onClick={() => handleChangeCheckboxesValues("genre", "Biografia1", !checkboxGenre.Biografia1)}
                 checkedIcon={<PlayArrow />} />}
           />
 
@@ -203,7 +239,7 @@ const Sidebar = () => {
             control={
               <Checkbox icon={<PlayArrowOutlined />}
                 checked={checkboxGenre.Comedia35}
-                onClick={() => handleChangeCheckboxGenre("Comedia35", !checkboxGenre.Comedia35)}
+                onClick={() => handleChangeCheckboxesValues("genre", "Comedia35", !checkboxGenre.Comedia35)}
                 checkedIcon={<PlayArrow />} />}
           />
 
@@ -213,7 +249,7 @@ const Sidebar = () => {
             control={
               <Checkbox icon={<PlayArrowOutlined />}
                 checked={checkboxGenre.Documentario99}
-                onClick={() => handleChangeCheckboxGenre("Documentario99", !checkboxGenre.Documentario99)}
+                onClick={() => handleChangeCheckboxesValues("genre", "Documentario99", !checkboxGenre.Documentario99)}
                 checkedIcon={<PlayArrow />} />}
           />
 
@@ -223,7 +259,7 @@ const Sidebar = () => {
             control={
               <Checkbox icon={<PlayArrowOutlined />}
                 checked={checkboxGenre.Drama18}
-                onClick={() => handleChangeCheckboxGenre("Drama18", !checkboxGenre.Drama18)}
+                onClick={() => handleChangeCheckboxesValues("genre", "Drama18", !checkboxGenre.Drama18)}
                 checkedIcon={<PlayArrow />} />}
           />
 
@@ -233,7 +269,7 @@ const Sidebar = () => {
             control={
               <Checkbox icon={<PlayArrowOutlined />}
                 checked={checkboxGenre.FiccaoCientifica878}
-                onClick={() => handleChangeCheckboxGenre("FiccaoCientifica878", !checkboxGenre.FiccaoCientifica878)}
+                onClick={() => handleChangeCheckboxesValues("genre", "FiccaoCientifica878", !checkboxGenre.FiccaoCientifica878)}
                 checkedIcon={<PlayArrow />} />}
           />
 
@@ -243,7 +279,7 @@ const Sidebar = () => {
             control={
               <Checkbox icon={<PlayArrowOutlined />}
                 checked={checkboxGenre.Romance10749}
-                onClick={() => handleChangeCheckboxGenre("Romance10749", !checkboxGenre.Romance10749)}
+                onClick={() => handleChangeCheckboxesValues("genre", "Romance10749", !checkboxGenre.Romance10749)}
                 checkedIcon={<PlayArrow />} />}
           />
 
@@ -253,7 +289,7 @@ const Sidebar = () => {
             control={
               <Checkbox icon={<PlayArrowOutlined />}
                 checked={checkboxGenre.Terror}
-                onClick={() => handleChangeCheckboxGenre("Terror27", !checkboxGenre.Terror27)}
+                onClick={() => handleChangeCheckboxesValues("genre", "Terror27", !checkboxGenre.Terror27)}
                 checkedIcon={<PlayArrow />} />}
           />
         </FormGroup>
