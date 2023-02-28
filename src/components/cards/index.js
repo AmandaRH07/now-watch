@@ -3,6 +3,7 @@ import { CardConfig } from "./card";
 import api from '../../fetch'
 import './style.css';
 import FilterContext from '../../contexts/filter-context';
+import {CaptalizeFirstLetter} from '../../utils'
 
 export default function Cards() {
   const { filterService, filterType, filterGenre } = useContext(FilterContext);
@@ -41,9 +42,19 @@ export default function Cards() {
       ))
       return response
     })
-      .catch(function (err) {
-        return err;
-      });
+    .catch(function (err) {
+      return err;
+    });
+  }
+
+  const HandleTypeToShowCard = (type) => {
+    let translate = undefined;
+    if(type === undefined) {
+      translate = "filme"
+    }
+
+    translate = type == "serie" ? "série" : "filme"
+    return CaptalizeFirstLetter(translate);
   }
 
   useEffect(() => {
@@ -53,12 +64,12 @@ export default function Cards() {
   return (
     <div className="cards-conteiner">
       <div className="card-content">
-        {responseData.length !== 0
+        {responseData
           &&
-          Object.entries(responseData).map(item => item[1]
-            &&
+          Object.entries(responseData).map((item) =>
             <CardConfig
-              data={item[1]} />
+              type={HandleTypeToShowCard(filterType)}
+              cardsMapData={item} />
           )
         }
       </div>

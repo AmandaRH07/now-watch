@@ -175,7 +175,7 @@ const Sidebar = () => {
           <h3> Categorias </h3>
           <FormControlLabel
             value="movie"
-            label="Filme"
+            label="Filmes"
             control={
               <Checkbox icon={<PlayArrowOutlined />}
                 checked={checkboxType.movie}

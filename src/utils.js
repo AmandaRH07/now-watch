@@ -4,7 +4,7 @@ import a12 from './images/ages/age12.png'
 import a16 from './images/ages/age16.png'
 import a18 from './images/ages/age18.png'
 
-export default function ConvertParentalPating(age) {
+export function ConvertParentalPating(age) {
   switch (age) {
     case 'L':
       return <img src={free} alt="L" />
@@ -21,4 +21,8 @@ export default function ConvertParentalPating(age) {
     default:
       return <p alt={age}> {age} </p>
   }
+}
+
+export function CaptalizeFirstLetter(string){
+  return string[0].toUpperCase() + string.slice(1);
 }
