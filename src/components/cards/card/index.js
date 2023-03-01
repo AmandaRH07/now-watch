@@ -88,7 +88,7 @@ export function CardConfig({ type, cardsMapData }) {
               key={index}
               label={CaptalizeFirstLetter(item[0])}
               component="a"
-              href={item[1].us.link}
+              href={item[1].br.link}
               target="_blank"
               variant="outlined"
               clickable

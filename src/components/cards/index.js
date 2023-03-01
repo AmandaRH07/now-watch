@@ -9,8 +9,8 @@ export default function Cards() {
   const { filterService, filterType, filterGenre } = useContext(FilterContext);
   const [responseData, setResponseData] = useState([]);
 
-  function GetOptionsParams(filterOption, defaultOpttion) {
-    return filterOption !== undefined ? filterOption : defaultOpttion;
+  function GetOptionsParams(filterOption, defaultOption) {
+    return filterOption !== undefined ? filterOption : defaultOption;
   }
 
   const GetData = () => {
@@ -18,7 +18,7 @@ export default function Cards() {
       method: 'GET',
       url: 'https://streaming-availability.p.rapidapi.com/search/basic',
       params: {
-        country: 'us',
+        country: 'br',
         service: GetOptionsParams(filterService, "netflix"),
         type: GetOptionsParams(filterType, "movie"),
         genre: GetOptionsParams(filterGenre, "").replace(/[^0-9]/g, ''),
@@ -47,13 +47,10 @@ export default function Cards() {
     });
   }
 
-  const HandleTypeToShowCard = (type) => {
-    let translate = undefined;
-    if(type === undefined) {
-      translate = "filme"
-    }
 
-    translate = type == "serie" ? "série" : "filme"
+  console.log(responseData)
+  const HandleTypeToShowCard = (type) => {
+    const translate = type !== undefined || type == "series" ? "série" : "filme"
     return CaptalizeFirstLetter(translate);
   }
 
