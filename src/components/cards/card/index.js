@@ -58,7 +58,7 @@ export function CardConfig({ type, cardsMapData }) {
             disabled
           />
           <div className="card-row-second">
-            {ConvertParentalPating(`${data.age}`)}
+            {ConvertParentalPating(data.age)}
           </div>
         </div>
         <Divider variant="middle" sx={{ marginTop: 1 }} />

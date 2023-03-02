@@ -1,9 +1,9 @@
 import React, { useEffect, useContext, useState } from "react";
 import { CardConfig } from "./card";
+import {CaptalizeFirstLetter} from '../../utils' 
 import api from '../../fetch'
-import './style.css';
 import FilterContext from '../../contexts/filter-context';
-import {CaptalizeFirstLetter} from '../../utils'
+import './style.css';
 
 export default function Cards() {
   const { filterService, filterType, filterGenre } = useContext(FilterContext);
@@ -27,7 +27,7 @@ export default function Cards() {
         language: 'en'
       },
       headers: {
-        'X-RapidAPI-Key': 'a08b4892damsh53c57fca6e1477ap162e77jsn6c2433727c0a',
+        'X-RapidAPI-Key': 'b4424f4d74msh370de4b27bdb81dp1b0991jsn8aee88cf726e',
         'X-RapidAPI-Host': 'streaming-availability.p.rapidapi.com'
       }
     };
@@ -37,7 +37,7 @@ export default function Cards() {
         {
 
           ...prevState,
-          ...response.data.results
+           ...response.data.results
         }
       ))
       return response
@@ -47,11 +47,18 @@ export default function Cards() {
     });
   }
 
-
-  console.log(responseData)
   const HandleTypeToShowCard = (type) => {
-    const translate = type !== undefined || type == "series" ? "série" : "filme"
-    return CaptalizeFirstLetter(translate);
+    let typeSelected = undefined;
+    if (type === 'movie'){
+      typeSelected ="filme";
+    }
+    else if (type ==='series'){
+      typeSelected ="serie";
+    }
+    else{
+      typeSelected ="filme";
+    }
+    return CaptalizeFirstLetter(typeSelected);
   }
 
   useEffect(() => {
