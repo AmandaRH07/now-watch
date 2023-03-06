@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CardConfig/> Should call HandleGenresCards 1`] = `<UNDEFINED />`;
+
+exports[`<CardConfig/> Should render Card 1`] = `<UNDEFINED />`;
