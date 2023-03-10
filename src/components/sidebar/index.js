@@ -91,17 +91,24 @@ const Sidebar = () => {
 
   const handleSaveFilter = () => {
     const filtersCheckboxService = getSidebarOptions(checkboxService);
-    if(Object.keys(filtersCheckboxService).length !== 0){
-      handleChangeFiltersValues("service", ...filtersCheckboxService)
+    const filtersCheckboxServiceOptions = []
+    filtersCheckboxServiceOptions.push(filtersCheckboxService)
+    console.log("filtersCheckboxServiceOptions", filtersCheckboxServiceOptions)
+    if(filtersCheckboxService){
+      handleChangeFiltersValues("service", filtersCheckboxService)
     }
 
     const filtersCheckboxType = getSidebarOptions(checkboxType);
-    if(Object.keys(filtersCheckboxType).length !== 0){
-      handleChangeFiltersValues("type", ...filtersCheckboxType);
+    const filtersCheckboxTypeOptions = []
+    filtersCheckboxTypeOptions.push(filtersCheckboxType)
+    if(filtersCheckboxTypeOptions){
+      handleChangeFiltersValues("type", ...filtersCheckboxTypeOptions);
     }
 
     const filtersCheckboxGenre = getSidebarOptions(checkboxGenre);
-    if(Object.keys(filtersCheckboxGenre).length !== 0){
+    const filtersCheckboxGenreOptions = []
+    filtersCheckboxGenreOptions.push(filtersCheckboxType)
+    if(filtersCheckboxGenreOptions){
       handleChangeFiltersValues("genre", ...filtersCheckboxGenre);
     }
   }
