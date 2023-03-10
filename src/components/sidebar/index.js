@@ -19,8 +19,7 @@ const Sidebar = () => {
     setCheckboxGenre,
     setFilterService,
     setFilterType,
-    setFilterGenre,
-    filterGenre
+    setFilterGenre
   } = useContext(FilterContext);
 
   const getSidebarOptions = (field) => {
@@ -30,87 +29,69 @@ const Sidebar = () => {
   const handleChangeCheckboxesValues = (option, field, value) => {
     switch (option) {
       case 'service':
-        setCheckboxService(prevState => (
-          {
-            ...prevState,
-            [field]: value,
-          }
-        ))
+        setCheckboxService(prevState => ({
+          ...prevState,
+          [field]: value,
+        }))
         break;
       case 'type':
-        setCheckboxType(prevState => (
-          {
-            ...prevState,
-            [field]: value,
-          }
-        ))
+        setCheckboxType(prevState => ({
+          ...prevState,
+          [field]: value,
+        }))
         break;
       case 'genre':
-        setCheckboxGenre(prevState => (
-          {
-            ...prevState,
-            [field]: value,
-          }
-        ))
+        setCheckboxGenre(prevState => ({
+          ...prevState,
+          [field]: value,
+        }))
         break;
       default:
         break;
     }
   }
-
-  const handleChangeFiltersValues = (option, field) => {
-    switch (option) {
-      case 'service':
-        setFilterService(field)
-        break;
-      case 'type':
-        setFilterType(field)
-        break;
-      case 'genre':
-        setFilterGenre(field)
-        break;
-      default:
-        break;
-    }
-  }
-
 
   const handleCleanFilter = () => {
     const filtersCheckboxService = getSidebarOptions(checkboxService);
-    handleChangeCheckboxesValues("service", ...filtersCheckboxService, false);
-    handleChangeFiltersValues("service", undefined);
-    
+    filtersCheckboxService.map(service =>
+      setCheckboxService(prevState => ({
+        ...prevState,
+        [service]: false,
+      })))
+    setFilterService([])
+
     const filtersCheckboxType = getSidebarOptions(checkboxType);
-    handleChangeCheckboxesValues("type", ...filtersCheckboxType, false);
-    handleChangeFiltersValues("type", undefined);
+    filtersCheckboxType.map(service =>
+      setCheckboxType(prevState => ({
+        ...prevState,
+        [service]: false,
+      })))
+    setFilterType([])
 
     const filtersCheckboxGenre = getSidebarOptions(checkboxGenre);
-    handleChangeCheckboxesValues("genre", ...filtersCheckboxGenre, false);
-    handleChangeFiltersValues("genre", undefined);
+    filtersCheckboxGenre.map(service =>
+      setCheckboxGenre(prevState => ({
+        ...prevState,
+        [service]: false,
+      })))
+    setFilterGenre([])
   }
 
   const handleSaveFilter = () => {
     const filtersCheckboxService = getSidebarOptions(checkboxService);
     const filtersCheckboxServiceOptions = []
     filtersCheckboxServiceOptions.push(filtersCheckboxService)
-    console.log("filtersCheckboxServiceOptions", filtersCheckboxServiceOptions)
-    if(filtersCheckboxService){
-      handleChangeFiltersValues("service", filtersCheckboxService)
-    }
+    setFilterService(...filtersCheckboxServiceOptions)
 
     const filtersCheckboxType = getSidebarOptions(checkboxType);
     const filtersCheckboxTypeOptions = []
     filtersCheckboxTypeOptions.push(filtersCheckboxType)
-    if(filtersCheckboxTypeOptions){
-      handleChangeFiltersValues("type", ...filtersCheckboxTypeOptions);
-    }
+    setFilterType(...filtersCheckboxTypeOptions)
 
     const filtersCheckboxGenre = getSidebarOptions(checkboxGenre);
     const filtersCheckboxGenreOptions = []
-    filtersCheckboxGenreOptions.push(filtersCheckboxType)
-    if(filtersCheckboxGenreOptions){
-      handleChangeFiltersValues("genre", ...filtersCheckboxGenre);
-    }
+    filtersCheckboxGenreOptions.push(filtersCheckboxGenre)
+    setFilterGenre(...filtersCheckboxGenreOptions)
   }
 
   return (
@@ -135,7 +116,7 @@ const Sidebar = () => {
             control={
               <Checkbox icon={<PlayArrowOutlined />}
                 checked={checkboxService.apple}
-                onClick={() =>  handleChangeCheckboxesValues("service", "apple", !checkboxService.apple)}
+                onClick={() => handleChangeCheckboxesValues("service", "apple", !checkboxService.apple)}
                 checkedIcon={<PlayArrow />} />}
           />
 
@@ -145,7 +126,7 @@ const Sidebar = () => {
             control={
               <Checkbox icon={<PlayArrowOutlined />}
                 checked={checkboxService.disney}
-                onClick={() =>  handleChangeCheckboxesValues("service", "disney", !checkboxService.disney)}
+                onClick={() => handleChangeCheckboxesValues("service", "disney", !checkboxService.disney)}
                 checkedIcon={<PlayArrow />} />}
           />
 
@@ -155,7 +136,7 @@ const Sidebar = () => {
             control={
               <Checkbox icon={<PlayArrowOutlined />}
                 checked={checkboxService.hbo}
-                onClick={() =>  handleChangeCheckboxesValues("service", "hbo", !checkboxService.hbo)}
+                onClick={() => handleChangeCheckboxesValues("service", "hbo", !checkboxService.hbo)}
                 checkedIcon={<PlayArrow />} />}
           />
 
@@ -165,7 +146,7 @@ const Sidebar = () => {
             control={
               <Checkbox icon={<PlayArrowOutlined />}
                 checked={checkboxService.netflix}
-                onClick={() =>  handleChangeCheckboxesValues("service", "netflix", !checkboxService.netflix)}
+                onClick={() => handleChangeCheckboxesValues("service", "netflix", !checkboxService.netflix)}
                 checkedIcon={<PlayArrow />} />}
           />
 
@@ -175,7 +156,7 @@ const Sidebar = () => {
             control={
               <Checkbox icon={<PlayArrowOutlined />}
                 checked={checkboxService.starz}
-                onClick={() =>  handleChangeCheckboxesValues("service", "starz", !checkboxService.starz)}
+                onClick={() => handleChangeCheckboxesValues("service", "starz", !checkboxService.starz)}
                 checkedIcon={<PlayArrow />} />}
           />
 
@@ -208,7 +189,7 @@ const Sidebar = () => {
               <Checkbox icon={<PlayArrowOutlined />}
                 checked={checkboxGenre.Acao28}
                 onClick={() => handleChangeCheckboxesValues("genre", "Acao28", !checkboxGenre.Acao28)}
-                checkedIcon={<PlayArrow />} />} 
+                checkedIcon={<PlayArrow />} />}
           />
 
           <FormControlLabel

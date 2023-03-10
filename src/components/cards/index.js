@@ -11,11 +11,7 @@ export default function Cards() {
   function GetOptionsServicesParams(filterOption) {
     const defaultOption = "netflix";
 
-    if (filterOption === undefined || filterOption){
-      return defaultOption;
-    }
-
-    return filterOption
+    return filterOption.length > 0
       ? filterOption.join(',')
       : defaultOption;
   }
@@ -23,20 +19,19 @@ export default function Cards() {
   function GetOptionsTypesParams(filterOption) {
     const allTypes = "all";
 
-    if (filterOption === undefined){
-      return allTypes;
-    }
-    
-    return filterOption.length === 2 ?  allTypes : filterOption[0];
+    return filterOption.length === 2
+      ? allTypes
+      : filterOption[0];
   }
 
   function GetOptionsGenresParams(filterOption) {
-    if (filterOption !== undefined || filterOption){
-      return filterOption.replace(/[^0-9]/g, '')
+    if (filterOption.length > 0) {
+      return filterOption.map(opt => opt.replace(/[^0-9]/g, ''))[0]
     }
   }
 
   const GetData = () => {
+    console.log(filterService, filterType,filterGenre)
     const options = {
       method: 'GET',
       url: 'https://streaming-availability.p.rapidapi.com/v2/search/basic',
@@ -62,11 +57,11 @@ export default function Cards() {
           ...response.data.result
         }
       ))
-     return response
+      return response
     })
-    .catch(function (err) {
-      return err;
-    });
+      .catch(function (err) {
+        return err;
+      });
   }
 
   useEffect(() => {

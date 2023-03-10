@@ -31,9 +31,9 @@ function App() {
 
   });
 
-  const [filterService, setFilterService] = useState();
-  const [filterType, setFilterType] = useState();
-  const [filterGenre, setFilterGenre] = useState();
+  const [filterService, setFilterService] = useState([]);
+  const [filterType, setFilterType] = useState([]);
+  const [filterGenre, setFilterGenre] = useState([]);
 
   return (
     <div className="App">
