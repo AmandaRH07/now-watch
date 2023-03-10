@@ -11,6 +11,11 @@ export default function Cards() {
   function GetOptionsServicesParams(filterOption) {
     const defaultOption = "netflix";
 
+    if (filterOption.length >= 4){
+      console.log("Número de streamings selecionado é maior do que o permitido, uma adaptação foi feita para suportar a request!")
+      filterOption = filterOption.slice(0,3)
+    }
+
     return filterOption.length > 0
       ? filterOption.join(',')
       : defaultOption;
@@ -31,7 +36,6 @@ export default function Cards() {
   }
 
   const GetData = () => {
-    console.log(filterService, filterType,filterGenre)
     const options = {
       method: 'GET',
       url: 'https://streaming-availability.p.rapidapi.com/v2/search/basic',
@@ -73,8 +77,9 @@ export default function Cards() {
       <div className="card-content">
         {responseData
           &&
-          Object.entries(responseData).map((item) =>
+          Object.entries(responseData).map((item, index) =>
             <CardConfig
+              key={index}
               cardsMapData={item} />
           )
         }

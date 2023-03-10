@@ -8,7 +8,6 @@ import Divider from '@mui/material/Divider';
 export function CardConfig({ cardsMapData }) {
   const data = cardsMapData[1];
 
-
   return (
     <Card className="card" >
       <img src={data.posterURLs.original} />

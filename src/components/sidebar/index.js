@@ -267,7 +267,7 @@ const Sidebar = () => {
             label="Terror"
             control={
               <Checkbox icon={<PlayArrowOutlined />}
-                checked={checkboxGenre.Terror}
+                checked={checkboxGenre.Terror27}
                 onClick={() => handleChangeCheckboxesValues("genre", "Terror27", !checkboxGenre.Terror27)}
                 checkedIcon={<PlayArrow />} />}
           />

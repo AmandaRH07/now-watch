@@ -27,8 +27,7 @@ function App() {
     Drama18: false,
     FiccaoCientifica878: false,
     Romance10749: false,
-    Terror27: false,
-
+    Terror27: false
   });
 
   const [filterService, setFilterService] = useState([]);
