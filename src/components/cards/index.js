@@ -3,17 +3,20 @@ import { CardConfig } from "./card";
 import api from '../../fetch'
 import FilterContext from '../../contexts/filter-context';
 import './style.css';
+import { Button } from "@mui/material";
 
 export default function Cards() {
   const { filterService, filterType, filterGenre } = useContext(FilterContext);
-  const [responseData, setResponseData] = useState();
+  const [responseData, setResponseData] = useState([]);
+  const [responseHasMore, setResponseHasMore] = useState();
+  const [responseNextCursor, setResponseNextCursor] = useState();
 
   function GetOptionsServicesParams(filterOption) {
     const defaultOption = "netflix";
 
-    if (filterOption.length >= 4){
+    if (filterOption.length >= 4) {
       console.log("Número de streamings selecionado é maior do que o permitido, uma adaptação foi feita para suportar a request!")
-      filterOption = filterOption.slice(0,3)
+      filterOption = filterOption.slice(0, 3)
     }
 
     return filterOption.length > 0
@@ -24,7 +27,7 @@ export default function Cards() {
   function GetOptionsTypesParams(filterOption) {
     const allTypes = "all";
 
-    return filterOption.length === 2
+    return filterOption.length === 2 || filterOption.length === 0
       ? allTypes
       : filterOption[0];
   }
@@ -35,7 +38,8 @@ export default function Cards() {
     }
   }
 
-  const GetData = () => {
+  const GetData = (hasMore) => {
+    console.log(filterService, filterType, filterGenre)
     const options = {
       method: 'GET',
       url: 'https://streaming-availability.p.rapidapi.com/v2/search/basic',
@@ -46,6 +50,7 @@ export default function Cards() {
         show_type: GetOptionsTypesParams(filterType),
         genre: GetOptionsGenresParams(filterGenre),
         show_original_language: 'en',
+        cursor: hasMore ? responseNextCursor : undefined,
       },
       headers: {
         'X-RapidAPI-Key': 'b4424f4d74msh370de4b27bdb81dp1b0991jsn8aee88cf726e',
@@ -53,36 +58,38 @@ export default function Cards() {
       }
     };
 
-    api.request(options).then(response => {
-      setResponseData(prevState => (
-        {
-
-          ...prevState,
-          ...response.data.result
-        }
-      ))
-      return response
-    })
+    api.request(options).then(response => (
+      setResponseData((prevState => {
+        prevState.push(...response.data.result)
+        return [...prevState];
+      }
+      )),
+      setResponseHasMore(response.data.hasMore),
+      setResponseNextCursor(response.data.nextCursor)
+    ))
       .catch(function (err) {
         return err;
       });
   }
 
   useEffect(() => {
-    GetData()
+    GetData(false)
+    setResponseData([])
   }, [filterService, filterType, filterGenre])
 
   return (
     <div className="cards-conteiner">
       <div className="card-content">
-        {responseData
-          &&
+        {responseData &&
           Object.entries(responseData).map((item, index) =>
             <CardConfig
               key={index}
               cardsMapData={item} />
           )
         }
+        {responseHasMore &&
+          <Button
+            onClick={event => GetData(responseHasMore)}>Carregar mais</Button>}
       </div>
     </div>
   )
