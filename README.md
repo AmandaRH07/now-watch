@@ -21,8 +21,6 @@ Para instalar o <Now Watch>, siga estas etapas:
 
 Após clonar o repositório, você vai precisar do `git`, `node` e do `yarn` instalados na sua máquina. Também de um editor de texto como o [VSCode](https://code.visualstudio.com/)
 
-`yarn install`
-
 ## 📺  Usando <Now Watch>
 
 ```bash
