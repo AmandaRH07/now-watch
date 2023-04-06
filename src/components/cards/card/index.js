@@ -47,7 +47,7 @@ export function CardConfig({ cardsMapData }) {
         <Divider variant="middle" sx={{ marginTop: 1 }} />
 
         <div className="card-row-all">
-          {Object.entries(data.streamingInfo.br).map((item, index) =>
+          {Object.entries(data.streamingInfo.br || {}).map((item, index) =>
             <Chip
               key={index}
               label={CaptalizeFirstLetter(item[0])}

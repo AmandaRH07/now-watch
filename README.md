@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+# 👁 Now Watch
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+O Now Watch foi pensado para os dias de *day off* em que não queremos passar mais tempo na frente da TV rodando de *streaming* em *streaming* cassando algo para assistir do que propriamente assistindo. Nele você pode selecionar quais *streamings* tem acesso no momento, se tem preferência por filmes, séries ou até por algum gênero específico. 
 
-## Available Scripts
+O retorno é uma lista das midias disponíveis em cada streaming, te direcionando diretamente para o que você selecionar para assistir!
 
-In the project directory, you can run:
+## 🎬 Principais Tecnologias Utilizadas
+HTML | CSS | JavaScript | React 
+- React Router Dom
+- Axios
+- Material UI
 
-### `npm start`
+Utils :
+- API: [Streaming Availability](https://rapidapi.com/movie-of-the-night-movie-of-the-night-default/api/streaming-availability/)
+- Editor: Visual Studio Code
+- Fonts: Poppins
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🍿 Instalando <Now Watch>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Para instalar o <Now Watch>, siga estas etapas:
 
-### `npm test`
+Após clonar o repositório, você vai precisar do `git`, `node` e do `yarn` instalados na sua máquina. Também de um editor de texto como o [VSCode](https://code.visualstudio.com/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+`yarn install`
 
-### `npm run build`
+## 📺  Usando <Now Watch>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+# Clone o repositório
+$ git clone git@github.com: AmandaRH07 / now-watch.git
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Acesse a página do projeto no terminal
+$ cd now-watch
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Instale as dependências
+$ yarn
 
-### `npm run eject`
+# Rode a aplicação em modo de desenvolvimento
+$ yarn start
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# A aplicação vai estar rodando na porta: 3000 - http://localhost:3000
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 🔍 Rodando Suit de Testes
+**Gerais**
+`yarn test -u`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**Arquivo específico**
+`yarn test <nome_do_arquivo>` ➡️ `yarn test orders-filter.test.js`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+**Code Coverage**
+`yarn test --coverage`
 
-## Learn More
+### 💡 Ajustes e melhorias
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
+- [] Criação dos Créditos
+- [] Criação de testes unitários para MVP do sistema
+- [] Inserção de barra de pesquisa para procurar por midias específicas
+- [] Ajustes de layout
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 📝 Licença
 
-### Code Splitting
+Esse projeto está sob licença. Veja o arquivo [LICENÇA](LICENSE.md) para mais detalhes.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```❗ Este produto usa a API do TMDB mas não é certificada pelo TMDB || This product uses the TMDB API but is not endorsed or certified by TMDB```
