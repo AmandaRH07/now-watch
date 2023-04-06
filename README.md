@@ -4,7 +4,7 @@ O Now Watch foi pensado para os dias de *day off* em que não queremos passar ma
 
 O retorno é uma lista das midias disponíveis em cada streaming, te direcionando diretamente para o que você selecionar para assistir!
 
-![Tela do MVP](https://github.com/AmandaRH07/now-watch/tree/master/src/images/readme)
+![Tela do MVP](https://github.com/AmandaRH07/now-watch/blob/master/src/images/readme/mvp-screen.png?raw=true)
 
 ## 🎬 Principais Tecnologias Utilizadas
 HTML | CSS | JavaScript | React 
