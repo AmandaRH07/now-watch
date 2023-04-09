@@ -1,8 +1,8 @@
 # 👁 Now Watch
 
-O Now Watch foi pensado para os dias de *day off* em que não queremos passar mais tempo na frente da TV rodando de *streaming* em *streaming* cassando algo para assistir do que propriamente assistindo. Nele você pode selecionar quais *streamings* tem acesso no momento, se tem preferência por filmes, séries ou até por algum gênero específico. 
+O Now Watch foi pensado para os dias de *day off* em que não queremos passar mais tempo na frente da TV rodando de *streaming* em *streaming* caçando algo para assistir do que propriamente assistindo. Nele você pode selecionar quais *streamings* tem acesso no momento, se tem preferência por filmes, séries ou até por algum gênero específico. 
 
-O retorno é uma lista das midias disponíveis em cada streaming, te direcionando diretamente para o que você selecionar para assistir!
+O retorno é uma lista das midias disponíveis em cada streaming, te direcionando diretamente para o que você quiser assistir!
 
 ![Tela do MVP](https://github.com/AmandaRH07/now-watch/blob/master/src/images/readme/mvp-screen.png?raw=true)
 
@@ -14,8 +14,6 @@ HTML | CSS | JavaScript | React
 
 Utils :
 - API: [Streaming Availability](https://rapidapi.com/movie-of-the-night-movie-of-the-night-default/api/streaming-availability/)
-- Editor: Visual Studio Code
-- Fonts: Poppins
 
 ## 🍿 Instalando <Now Watch>
 
