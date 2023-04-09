@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { Checkbox } from '@mui/material';
 import { PlayArrowOutlined, PlayArrow } from '@mui/icons-material';
 import FormGroup from '@mui/material/FormGroup';
@@ -9,7 +9,6 @@ import './style.css';
 import FilterContext from '../../contexts/filter-context';
 
 const Sidebar = () => {
-
   const {
     checkboxService,
     setCheckboxService,
@@ -150,16 +149,6 @@ const Sidebar = () => {
                 checkedIcon={<PlayArrow />} />}
           />
 
-          <FormControlLabel
-            value="starz"
-            label="Star Plus"
-            control={
-              <Checkbox icon={<PlayArrowOutlined />}
-                checked={checkboxService.starz}
-                onClick={() => handleChangeCheckboxesValues("service", "starz", !checkboxService.starz)}
-                checkedIcon={<PlayArrow />} />}
-          />
-
           <h3> Categorias </h3>
           <FormControlLabel
             value="movie"
@@ -290,4 +279,4 @@ const Sidebar = () => {
   )
 };
 
-export default Sidebar
+export default Sidebar;

@@ -1,0 +1,9 @@
+.container{
+  display: flex;
+  align-items: center;
+}
+
+.credits{
+  padding: 20px;
+  width: 100px;
+}

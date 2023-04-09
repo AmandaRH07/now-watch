@@ -1,7 +1,8 @@
+import { useState } from 'react';
 import './global.css';
 import Home from './components/home';
 import FilterContext from './contexts/filter-context';
-import { useState } from 'react';
+import Router from './router';
 
 function App() {
   const [checkboxService, setCheckboxService] = useState({
@@ -23,7 +24,7 @@ function App() {
     Animacao16: false,
     Biografia1: false,
     Comedia38: false,
-    Documentario99:false,
+    Documentario99: false,
     Drama18: false,
     FiccaoCientifica878: false,
     Romance10749: false,
@@ -36,7 +37,6 @@ function App() {
 
   return (
     <div className="App">
-
       <FilterContext.Provider
         value={{
           checkboxService,
@@ -45,14 +45,16 @@ function App() {
           setCheckboxType,
           checkboxGenre,
           setCheckboxGenre,
-          filterService, 
+          filterService,
           setFilterService,
-          filterType, 
+          filterType,
           setFilterType,
-          filterGenre, 
+          filterGenre,
           setFilterGenre
         }}>
-        <Home />
+        <Router>
+          <Home />
+        </Router>
       </FilterContext.Provider>
     </div>
   );
