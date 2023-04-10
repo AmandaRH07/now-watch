@@ -10,7 +10,7 @@ export function CardConfig({ cardsMapData }) {
 
   return (
     <Card className="card" >
-      <img src={data.posterURLs.original} />
+      <img src={data.posterURLs.original} alt="poster"/>
       <div className="card-infos">
         <p className="card-first">{data.title}</p>
 

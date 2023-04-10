@@ -10,7 +10,7 @@ export function ConvertParentalPating(age) {
   switch (true) {
     case (convertAge < 10 || age === 'L'):
       return <img src={free} alt="L" />
-    case (convertAge == 10):
+    case (convertAge === 10):
       return <img src={a10} alt="10" />
     case (convertAge <= 12):
       return <img src={a12} alt="12" />

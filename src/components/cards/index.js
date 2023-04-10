@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState } from "react";
+import React, { useEffect, useContext, useState, useCallback } from "react";
 import { CardConfig } from "./card";
 import api from '../../fetch'
 import FilterContext from '../../contexts/filter-context';
@@ -38,7 +38,7 @@ export default function Cards() {
     }
   }
 
-  const GetData = () => {
+  const  GetData= useCallback(() => {
     const options = {
       method: 'GET',
       url: 'https://streaming-availability.p.rapidapi.com/v2/search/basic',
@@ -61,20 +61,19 @@ export default function Cards() {
       setResponseData((prevState => {
         prevState.push(...response.data.result)
         return [...prevState];
-      }
-      )),
+      }),
       setResponseHasMore(response.data.hasMore),
       setResponseNextCursor(response.data.nextCursor)
     ))
-      .catch(function (err) {
-        return err;
-      });
-  }
+    .catch(function (err) {
+      return err;
+  }));
+  }, [filterService, filterType, filterGenre, responseHasMore, responseNextCursor]);
 
   useEffect(() => {
     GetData()
     setResponseData([])
-  }, [filterService, filterType, filterGenre])
+  }, [GetData, filterService, filterType, filterGenre])
 
   return (
     <div className="cards-conteiner">
