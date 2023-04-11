@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState, useCallback } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { CardConfig } from "./card";
 import api from '../../fetch'
 import FilterContext from '../../contexts/filter-context';
@@ -6,10 +6,8 @@ import './style.css';
 import { Button } from "@mui/material";
 
 export default function Cards() {
-  const { filterService, filterType, filterGenre } = useContext(FilterContext);
+  const { filterService, filterType, filterGenre, responseHasMore, responseNextCursor, setResponseHasMore, setResponseNextCursor } = useContext(FilterContext);
   const [responseData, setResponseData] = useState([]);
-  const [responseHasMore, setResponseHasMore] = useState();
-  const [responseNextCursor, setResponseNextCursor] = useState();
 
   function GetOptionsServicesParams(filterOption) {
     const defaultOption = "netflix";
@@ -38,7 +36,7 @@ export default function Cards() {
     }
   }
 
-  const  GetData= useCallback(() => {
+  const getData = () => {
     const options = {
       method: 'GET',
       url: 'https://streaming-availability.p.rapidapi.com/v2/search/basic',
@@ -58,22 +56,19 @@ export default function Cards() {
     };
 
     api.request(options).then(response => (
-      setResponseData((prevState => {
+      setResponseData(prevState => {
         prevState.push(...response.data.result)
         return [...prevState];
-      }),
-      setResponseHasMore(response.data.hasMore),
-      setResponseNextCursor(response.data.nextCursor)
-    ))
-    .catch(function (err) {
-      return err;
-  }));
-  }, [filterService, filterType, filterGenre, responseHasMore, responseNextCursor]);
+      },
+        setResponseHasMore(response.data.hasMore),
+        setResponseNextCursor(response.data.nextCursor)
+      )))
+    };
 
   useEffect(() => {
-    GetData()
+    getData()
     setResponseData([])
-  }, [GetData, filterService, filterType, filterGenre])
+  }, [filterService, filterType, filterGenre])
 
   return (
     <div className="cards-conteiner">
@@ -87,7 +82,7 @@ export default function Cards() {
         }
         {responseHasMore &&
           <Button
-            onClick={() => GetData()}>Carregar mais</Button>}
+            onClick={() => getData()}>Carregar mais</Button>}
       </div>
     </div>
   )

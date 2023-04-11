@@ -18,7 +18,9 @@ const Sidebar = () => {
     setCheckboxGenre,
     setFilterService,
     setFilterType,
-    setFilterGenre
+    setFilterGenre,
+    setResponseHasMore,
+    setResponseNextCursor
   } = useContext(FilterContext);
 
   const getSidebarOptions = (field) => {
@@ -60,20 +62,23 @@ const Sidebar = () => {
     setFilterService([])
 
     const filtersCheckboxType = getSidebarOptions(checkboxType);
-    filtersCheckboxType.map(service =>
+    filtersCheckboxType.map(type =>
       setCheckboxType(prevState => ({
         ...prevState,
-        [service]: false,
+        [type]: false,
       })))
     setFilterType([])
 
     const filtersCheckboxGenre = getSidebarOptions(checkboxGenre);
-    filtersCheckboxGenre.map(service =>
+    filtersCheckboxGenre.map(genre =>
       setCheckboxGenre(prevState => ({
         ...prevState,
-        [service]: false,
+        [genre]: false,
       })))
     setFilterGenre([])
+
+    setResponseHasMore(false)
+    setResponseNextCursor(undefined)
   }
 
   const handleSaveFilter = () => {

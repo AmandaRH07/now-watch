@@ -34,6 +34,8 @@ function App() {
   const [filterService, setFilterService] = useState([]);
   const [filterType, setFilterType] = useState([]);
   const [filterGenre, setFilterGenre] = useState([]);
+  const [responseHasMore, setResponseHasMore] = useState();
+  const [responseNextCursor, setResponseNextCursor] = useState();
 
   return (
     <div className="App">
@@ -50,7 +52,11 @@ function App() {
           filterType,
           setFilterType,
           filterGenre,
-          setFilterGenre
+          setFilterGenre,
+          responseHasMore, 
+          setResponseHasMore,
+          responseNextCursor, 
+          setResponseNextCursor
         }}>
         <Router>
           <Home />
