@@ -6,8 +6,7 @@ import './style.css';
 import { Button } from "@mui/material";
 
 export default function Cards() {
-  const { filterService, filterType, filterGenre, responseHasMore, responseNextCursor, setResponseHasMore, setResponseNextCursor } = useContext(FilterContext);
-  const [responseData, setResponseData] = useState([]);
+  const { filterService, filterType, filterGenre, responseHasMore, responseNextCursor, setResponseHasMore, setResponseNextCursor, responseData, setResponseData } = useContext(FilterContext);
 
   function GetOptionsServicesParams(filterOption) {
     const defaultOption = "netflix";

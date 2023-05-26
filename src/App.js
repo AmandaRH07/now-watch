@@ -37,6 +37,8 @@ function App() {
   const [responseHasMore, setResponseHasMore] = useState();
   const [responseNextCursor, setResponseNextCursor] = useState();
 
+  const [responseData, setResponseData] = useState([]);
+
   return (
     <div className="App">
       <FilterContext.Provider
@@ -56,7 +58,9 @@ function App() {
           responseHasMore, 
           setResponseHasMore,
           responseNextCursor, 
-          setResponseNextCursor
+          setResponseNextCursor,
+          responseData, 
+          setResponseData
         }}>
         <Router>
           <Home />

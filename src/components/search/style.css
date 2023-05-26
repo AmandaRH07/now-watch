@@ -1,0 +1,12 @@
+.search-content{
+  display: flex;
+  align-items: center;
+  background-color: red;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 )
+}
+
+.teste2{
+  background: green;
+  padding-bottom: 2px;
+}
