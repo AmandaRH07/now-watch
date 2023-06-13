@@ -3,6 +3,7 @@ import Sidebar from "../sidebar";
 import Cards from "../cards";
 import Header from "../header";
 import './style.css';
+import SearchComponent from "../search";
 
 export default function Home() {
   return (
@@ -10,7 +11,10 @@ export default function Home() {
       <Header />
       <div className="content-body">
         <Sidebar />
-        <Cards />
+        <div className="cards-body">
+          <SearchComponent/>
+          <Cards />
+        </div>
       </div>
     </div>
   )

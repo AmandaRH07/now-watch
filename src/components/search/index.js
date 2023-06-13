@@ -1,12 +1,11 @@
+import React, { useContext, useState } from 'react';
+import * as S from './styled'
 import SearchIcon from '@mui/icons-material/Search';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
 import api from '../../fetch'
 import FilterContext from '../../contexts/filter-context';
-import { useContext, useState } from 'react';
 
 const SearchComponent = () => {
-  const {setResponseData } = useContext(FilterContext);
+  const { setResponseData } = useContext(FilterContext);
   const [title, setTitle] = useState('');
 
   const handleClickSearch = () => {
@@ -36,17 +35,21 @@ const SearchComponent = () => {
   }
 
   return (
-    <div className='search-content'>
-      <SearchIcon />
-      <TextField
-        id="input-with-sx"
-        label="Search..."
-        variant="standard"
-        onChange={(event) => setTitle(event.target.value)}
-        value={title}
-      />
-      <Button onClick={handleClickSearch}>Enviar</Button>
-    </div>
+    <S.SearchContent>
+      <S.ContentStyled>
+        <S.TextFieldStyled
+          id="input-with-sx"
+          label="Search"
+          variant="standard"
+          onChange={(event) => setTitle(event.target.value)}
+          value={title}
+          size="small"
+        />
+        <S.IconButtonStyled onClick={handleClickSearch}>
+          <SearchIcon />
+        </S.IconButtonStyled >
+      </S.ContentStyled>
+    </S.SearchContent>
   )
 }
 

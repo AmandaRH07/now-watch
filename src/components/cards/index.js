@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState } from "react";
+import React, { useEffect, useContext } from "react";
 import { CardConfig } from "./card";
 import api from '../../fetch'
 import FilterContext from '../../contexts/filter-context';

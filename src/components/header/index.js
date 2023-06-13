@@ -4,7 +4,6 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import MenuOptions from './menu'
 import { useNavigate } from 'react-router-dom';
-import SearchComponent from "../search";
 import './style.css';
 
 const Header = () => {
@@ -12,8 +11,8 @@ const Header = () => {
 
   return (
     <AppBar position="static">
-      <div className="search-content">
-        <Toolbar className="teste">
+      <div>
+        <Toolbar className="toolbar-content">
           <Typography
             variant="h3"
             component="div"
@@ -22,7 +21,6 @@ const Header = () => {
           >
             Now Watch
           </Typography>
-          <SearchComponent />
           <MenuOptions />
 
         </Toolbar>

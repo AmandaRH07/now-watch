@@ -1,5 +1,4 @@
-.teste{
-  background: rgb(216, 157, 47);
+.toolbar-content{
   width: 100%;
   display: flex;
   justify-content: space-between;
