@@ -17,9 +17,10 @@ export const ContentStyled = styled.div`
 `;
 
 export const TextFieldStyled = styled(TextField)`
+  padding-left: 5px;
   width: 75%;
-  position: relative;
   bottom: 4px;
+  left: 8px;
 `;
 
 export const IconButtonStyled = styled(IconButton)`

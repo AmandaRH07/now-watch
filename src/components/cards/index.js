@@ -9,7 +9,7 @@ export default function Cards() {
   const { filterService, filterType, filterGenre, responseHasMore, responseNextCursor, setResponseHasMore, setResponseNextCursor, responseData, setResponseData } = useContext(FilterContext);
 
   function GetOptionsServicesParams(filterOption) {
-    const defaultOption = "netflix";
+    const defaultOption = "netflix,disney,hbo,prime";
 
     if (filterOption.length >= 4) {
       console.log("Número de streamings selecionado é maior do que o permitido, uma adaptação foi feita para suportar a request!")
