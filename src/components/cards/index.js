@@ -79,10 +79,12 @@ export default function Cards() {
               cardsMapData={item} />
           )
         }
+      </div>
+      <div className="footer-content">
         {responseHasMore &&
           <Button
             onClick={() => getData()}>Carregar mais</Button>}
-      </div>
+        </div>
     </div>
   )
 }

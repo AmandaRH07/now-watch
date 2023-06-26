@@ -10,3 +10,9 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
   grid-gap: 20px;
 }
+
+.footer-content{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}

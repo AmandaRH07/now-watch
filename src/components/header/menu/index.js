@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import Button from '@mui/material/Button';
+import * as S from './styled';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 
@@ -28,7 +28,7 @@ const MenuOptions = () => {
 
   return (
     <>
-      <Button
+      <S.ButtonContent
         id="basic-button"
         aria-controls={open ? 'basic-menu' : undefined}
         aria-haspopup="true"
@@ -36,7 +36,7 @@ const MenuOptions = () => {
         onClick={handleClick}
       >
         Menu
-      </Button>
+      </S.ButtonContent>
       <Menu
         id="basic-menu"
         anchorEl={anchorEl}
