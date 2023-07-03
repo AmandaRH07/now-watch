@@ -1,5 +1,110 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<CardConfig/> Should call HandleGenresCards 1`] = `<UNDEFINED />`;
-
-exports[`<CardConfig/> Should render Card 1`] = `<UNDEFINED />`;
+exports[`<CardConfig/> Should render Card 1`] = `
+<div>
+  <div
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root card css-bhp9pd-MuiPaper-root-MuiCard-root"
+  >
+    <img
+      alt="poster"
+    />
+    <div
+      class="card-infos"
+    >
+      <p
+        class="card-first"
+      >
+        101 Dalmatians: The Series
+      </p>
+      <div
+        class="card-row-divided"
+      >
+        <div
+          class="MuiChip-root MuiChip-filled Mui-disabled MuiChip-sizeSmall MuiChip-colorDefault MuiChip-filledDefault css-1xqxev8-MuiChip-root"
+        >
+          <span
+            class="MuiChip-label MuiChip-labelSmall css-wjsjww-MuiChip-label"
+          >
+            Series
+          </span>
+        </div>
+        <div
+          class="card-row-second"
+        >
+          <img
+            alt="L"
+            src="free.png"
+          />
+        </div>
+      </div>
+      <hr
+        class="MuiDivider-root MuiDivider-middle css-14zln4p-MuiDivider-root"
+      />
+      <div
+        class="card-row-divided"
+      >
+        <div
+          class="card-row-first"
+        >
+          <div
+            class="MuiChip-root MuiChip-outlined MuiChip-sizeSmall MuiChip-colorDefault MuiChip-outlinedDefault css-11j0fh8-MuiChip-root"
+          >
+            <span
+              class="MuiChip-label MuiChip-labelSmall css-wjsjww-MuiChip-label"
+            >
+              Animation
+            </span>
+          </div>
+          <div
+            class="MuiChip-root MuiChip-outlined MuiChip-sizeSmall MuiChip-colorDefault MuiChip-outlinedDefault css-11j0fh8-MuiChip-root"
+          >
+            <span
+              class="MuiChip-label MuiChip-labelSmall css-wjsjww-MuiChip-label"
+            >
+              Short
+            </span>
+          </div>
+          <div
+            class="MuiChip-root MuiChip-outlined MuiChip-sizeSmall MuiChip-colorDefault MuiChip-outlinedDefault css-11j0fh8-MuiChip-root"
+          >
+            <span
+              class="MuiChip-label MuiChip-labelSmall css-wjsjww-MuiChip-label"
+            >
+              Adventure
+            </span>
+          </div>
+        </div>
+        <div
+          class="card-row-second"
+        >
+          <p>
+            1997
+          </p>
+        </div>
+      </div>
+      <hr
+        class="MuiDivider-root MuiDivider-middle css-14zln4p-MuiDivider-root"
+      />
+      <div
+        class="card-row-all"
+      >
+        <a
+          class="MuiButtonBase-root MuiChip-root MuiChip-outlined MuiChip-sizeSmall MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-outlinedDefault css-1obvdvb-MuiButtonBase-root-MuiChip-root"
+          href="https://www.disneyplus.com/series/101-dalmatians-series/1ry2z2HF6ad9"
+          tabindex="0"
+          target="_blank"
+        >
+          <span
+            class="MuiChip-label MuiChip-labelSmall css-wjsjww-MuiChip-label"
+          >
+            Disney
+          </span>
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;

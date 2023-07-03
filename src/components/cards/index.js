@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from "react";
-import { CardConfig } from "./card";
+import CardConfig from "./card";
 import api from '../../fetch'
 import FilterContext from '../../contexts/filter-context';
 import './style.css';
@@ -76,7 +76,7 @@ export default function Cards() {
           Object.entries(responseData).map((item, index) =>
             <CardConfig
               key={index}
-              cardsMapData={item} />
+              cardsMapData={item[1]} />
           )
         }
       </div>

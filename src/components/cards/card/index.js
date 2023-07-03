@@ -5,31 +5,30 @@ import Chip from '@mui/material/Chip';
 import Card from '@mui/material/Card';
 import Divider from '@mui/material/Divider';
 
-export function CardConfig({ cardsMapData }) {
-  const data = cardsMapData[1];
+const CardConfig = ({cardsMapData} ) => {
 
   return (
     <Card className="card" >
-      <img src={data.posterURLs.original} alt="poster"/>
+      <img src={cardsMapData.posterURLs.original} alt="poster"/>
       <div className="card-infos">
-        <p className="card-first">{data.title}</p>
+        <p className="card-first">{cardsMapData.title}</p>
 
         <div className="card-row-divided">
           <Chip
-            label={CaptalizeFirstLetter(data.type)}
+            label={CaptalizeFirstLetter(cardsMapData.type)}
             size="small"
             sx={{ marginRight: 1, marginTop: 1 }}
             disabled
           />
           <div className="card-row-second">
-            {ConvertParentalPating(data.advisedMinimumAudienceAge)}
+            {ConvertParentalPating(cardsMapData.advisedMinimumAudienceAge)}
           </div>
         </div>
         <Divider variant="middle" sx={{ marginTop: 1 }} />
 
         <div className="card-row-divided">
           <div className="card-row-first">
-            {data.genres.map((item, index) =>
+            {cardsMapData.genres.map((item, index) =>
               <Chip
                 key={index}
                 label={item.name}
@@ -40,14 +39,14 @@ export function CardConfig({ cardsMapData }) {
             )}
           </div>
           <div className="card-row-second">
-            <p>{data.year}</p>
+            <p>{cardsMapData.firstAirYear}</p>
           </div>
         </div>
 
         <Divider variant="middle" sx={{ marginTop: 1 }} />
 
         <div className="card-row-all">
-          {Object.entries(data.streamingInfo.br || {}).map((item, index) =>
+          {Object.entries(cardsMapData.streamingInfo.br || {}).map((item, index) =>
             <Chip
               key={index}
               label={CaptalizeFirstLetter(item[0])}
@@ -65,3 +64,5 @@ export function CardConfig({ cardsMapData }) {
     </Card>
   )
 }
+
+export default CardConfig;
