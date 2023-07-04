@@ -1,15 +1,15 @@
-import Cards from "."
 import { render } from "@testing-library/react"
+import Home from "."
 
 const renderComponent = () => (
   render(
-    <Cards />
+      <Home />
   )
 )
 
-describe('<Cards/>', () => {
+describe('<Home/>', () => {
 
-  it('Should render Cards', () => {
+  it('Should render Home', () => {
     const {container} = renderComponent();
 
     console.log("container", container);

@@ -1,15 +1,18 @@
-import Cards from "."
+import { BrowserRouter } from "react-router-dom"
 import { render } from "@testing-library/react"
+import Header from "."
 
 const renderComponent = () => (
   render(
-    <Cards />
+    <BrowserRouter>
+      <Header />
+    </BrowserRouter>
   )
 )
 
-describe('<Cards/>', () => {
+describe('<Header/>', () => {
 
-  it('Should render Cards', () => {
+  it('Should render Header', () => {
     const {container} = renderComponent();
 
     console.log("container", container);

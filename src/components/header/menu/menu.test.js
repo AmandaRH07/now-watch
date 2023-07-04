@@ -1,15 +1,18 @@
-import Cards from "."
+import { BrowserRouter } from "react-router-dom"
 import { render } from "@testing-library/react"
+import MenuOptions from "."
 
 const renderComponent = () => (
   render(
-    <Cards />
+    <BrowserRouter>
+      <MenuOptions />
+    </BrowserRouter>
   )
 )
 
-describe('<Cards/>', () => {
+describe('<MenuOptions/>', () => {
 
-  it('Should render Cards', () => {
+  it('Should render MenuOptions', () => {
     const {container} = renderComponent();
 
     console.log("container", container);

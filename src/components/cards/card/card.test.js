@@ -46,8 +46,6 @@ const renderComponent = () => (
 describe('<CardConfig/>', () => {
   it('Should render Card', () => {
     const {container} = renderComponent();
-
-    console.log("container", container);
     expect(container).toMatchSnapshot();
   })
 })

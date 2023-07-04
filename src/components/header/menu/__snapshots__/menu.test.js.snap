@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MenuOptions/> Should render MenuOptions 1`] = `
+<div>
+  <button
+    aria-haspopup="true"
+    class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium sc-aXZVg iHibrM css-1e6y48t-MuiButtonBase-root-MuiButton-root"
+    id="basic-button"
+    tabindex="0"
+    type="button"
+  >
+    Menu
+    <span
+      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+    />
+  </button>
+</div>
+`;

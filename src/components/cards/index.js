@@ -5,7 +5,7 @@ import FilterContext from '../../contexts/filter-context';
 import './style.css';
 import { Button } from "@mui/material";
 
-export default function Cards() {
+const Cards = () => {
   const { filterService, filterType, filterGenre, responseHasMore, responseNextCursor, setResponseHasMore, setResponseNextCursor, responseData, setResponseData } = useContext(FilterContext);
 
   function GetOptionsServicesParams(filterOption) {
@@ -88,3 +88,5 @@ export default function Cards() {
     </div>
   )
 }
+
+export default Cards;

@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<About/> Should render About 1`] = `
+<div>
+  <div>
+    <header
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionStatic css-hip9hq-MuiPaper-root-MuiAppBar-root"
+    >
+      <div>
+        <div
+          class="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular toolbar-content css-hyum1k-MuiToolbar-root"
+        >
+          <div
+            class="MuiTypography-root MuiTypography-h3 css-w8wcht-MuiTypography-root"
+          >
+            Now Watch
+          </div>
+          <button
+            aria-haspopup="true"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium sc-aXZVg iHibrM css-1e6y48t-MuiButtonBase-root-MuiButton-root"
+            id="basic-button"
+            tabindex="0"
+            type="button"
+          >
+            Menu
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+      </div>
+    </header>
+    <div
+      class="container"
+    >
+      <img
+        alt="The Movie DB Logo"
+        class="credits"
+        src="theMovieDbLogo.svg"
+      />
+      <div>
+        <p>
+          Este produto usa a API do TMDB mas não é certificada pelo TMDB
+        </p>
+        <p>
+          This product uses the TMDB API but is not endorsed or certified by TMDB
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
