@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Checkbox } from '@mui/material';
 import { PlayArrowOutlined, PlayArrow } from '@mui/icons-material';
 import FormGroup from '@mui/material/FormGroup';
@@ -6,7 +6,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import './style.css';
-import FilterContext from '../../contexts/filter-context';
+import { useFilterContext } from '../../contexts/filter-context';
 
 const Sidebar = () => {
   const {
@@ -21,7 +21,7 @@ const Sidebar = () => {
     setFilterGenre,
     setResponseHasMore,
     setResponseNextCursor
-  } = useContext(FilterContext);
+  } = useFilterContext();
 
   const getSidebarOptions = (field) => {
     return Object.keys(field).filter((item) => field[item] === true);

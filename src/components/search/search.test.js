@@ -1,11 +1,14 @@
 import { BrowserRouter } from "react-router-dom"
 import SearchComponent from "."
 import { render } from "@testing-library/react"
+import { FilterProvider } from "../../contexts/filter-context"
 
 const renderComponent = () => (
   render(
     <BrowserRouter>
-      <SearchComponent />
+      <FilterProvider>
+        <SearchComponent />
+      </FilterProvider>
     </BrowserRouter>
   )
 )
@@ -13,9 +16,7 @@ const renderComponent = () => (
 describe('<SearchComponent/>', () => {
 
   it('Should render SearchComponent', () => {
-    const {container} = renderComponent();
-
-    console.log("container", container);
+    const { container } = renderComponent();
     expect(container).toMatchSnapshot();
   })
 })

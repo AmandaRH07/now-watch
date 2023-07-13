@@ -1,5 +1,6 @@
 import CardConfig from "."
 import { render } from "@testing-library/react"
+import { FilterProvider } from "../../../contexts/filter-context"
 
 const props =
 {
@@ -38,8 +39,10 @@ const props =
 
 const renderComponent = () => (
   render(
-    <CardConfig
-      cardsMapData={props} />
+    <FilterProvider>
+      <CardConfig
+        cardsMapData={props} />
+    </FilterProvider>
   )
 )
 

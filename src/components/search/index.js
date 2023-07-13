@@ -1,11 +1,11 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import * as S from './styled'
 import SearchIcon from '@mui/icons-material/Search';
 import api from '../../fetch'
-import FilterContext from '../../contexts/filter-context';
+import { useFilterContext } from '../../contexts/filter-context';
 
 const SearchComponent = () => {
-  const { setResponseData } = useContext(FilterContext);
+  const { setResponseData } = useFilterContext();
   const [title, setTitle] = useState('');
 
   const handleClickSearch = () => {

@@ -1,12 +1,12 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect } from "react";
 import CardConfig from "./card";
 import api from '../../fetch'
-import FilterContext from '../../contexts/filter-context';
+import { useFilterContext } from '../../contexts/filter-context';
 import './style.css';
 import { Button } from "@mui/material";
 
 const Cards = () => {
-  const { filterService, filterType, filterGenre, responseHasMore, responseNextCursor, setResponseHasMore, setResponseNextCursor, responseData, setResponseData } = useContext(FilterContext);
+  const { filterService, filterType, filterGenre, responseHasMore, responseNextCursor, setResponseHasMore, setResponseNextCursor, responseData, setResponseData } = useFilterContext();
 
   function GetOptionsServicesParams(filterOption) {
     const defaultOption = "netflix,disney,hbo,prime";

@@ -1,10 +1,14 @@
 import { render } from "@testing-library/react"
 import Sidebar from "."
+import { FilterProvider } from "../../contexts/filter-context"
 
 const renderComponent = () => {
   return (
     render(
-      <Sidebar />)
+      <FilterProvider>
+        <Sidebar />
+      </FilterProvider>
+    )
   )
 }
 
