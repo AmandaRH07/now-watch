@@ -1,21 +1,50 @@
 import Cards from "."
 import { render } from "@testing-library/react"
-import { FilterProvider } from "../../contexts/filter-context"
+import { FilterContext, FilterProvider } from "../../contexts/filter-context"
 
-const renderComponent = () => (
+const renderComponent = () =>
   render(
     <FilterProvider>
-    <Cards />
+      <Cards />
     </FilterProvider>
   )
-)
 
 describe('<Cards/>', () => {
+  it('Should render Cards', () => {
+    const { container } = renderComponent();
+    expect(container).toMatchSnapshot();
+  })
+})
+
+describe('<Cards/> with params', () => {
+  const renderComponentProps = (props) =>
+    render(
+      <FilterContext.Provider value={{
+        ...props
+      }}>
+        <Cards />
+      </FilterContext.Provider>
+
+
+    )
 
   it('Should render Cards', () => {
-    const {container} = renderComponent();
+    const props = {
+      filterGenre: [
+        'Animacao16'
+      ],
 
-    console.log("container", container);
+      filterService: [
+        "apple",
+        "prime",
+        "disney",
+        "hbo",
+        "netflix"
+    ],
+      filterType: 'all',
+      setResponseData: jest.fn()
+    }
+    const { container } = renderComponentProps(props);
     expect(container).toMatchSnapshot();
   })
 })

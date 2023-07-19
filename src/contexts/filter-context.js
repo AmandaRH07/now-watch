@@ -8,7 +8,6 @@ const FilterProvider = ({ children }) => {
     disney: false,
     hbo: false,
     netflix: false,
-    starz: false
   });
 
   const [checkboxType, setCheckboxType] = useState({
