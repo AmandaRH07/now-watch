@@ -15,7 +15,7 @@ exports[`<Cards/> Should render Cards 1`] = `
 </div>
 `;
 
-exports[`<Cards/> with params Should render Cards 1`] = `
+exports[`<Cards/> with params Should render Cards with params 1`] = `
 <div>
   <div
     class="cards-conteiner"

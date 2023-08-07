@@ -53,7 +53,7 @@ const Cards = () => {
         'X-RapidAPI-Host': 'streaming-availability.p.rapidapi.com'
       }
     };
-
+    
     api.request(options).then(response => (
       setResponseData(prevState => {
         prevState.push(...response.data.result)

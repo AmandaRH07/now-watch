@@ -6,7 +6,6 @@ import Card from '@mui/material/Card';
 import Divider from '@mui/material/Divider';
 
 const CardConfig = ({cardsMapData} ) => {
-
   return (
     <Card className="card" >
       <img src={cardsMapData.posterURLs.original} alt="poster"/>

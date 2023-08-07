@@ -24,11 +24,9 @@ describe('<Cards/> with params', () => {
       }}>
         <Cards />
       </FilterContext.Provider>
-
-
     )
 
-  it('Should render Cards', () => {
+  it('Should render Cards with params', () => {
     const props = {
       filterGenre: [
         'Animacao16'
@@ -40,9 +38,9 @@ describe('<Cards/> with params', () => {
         "disney",
         "hbo",
         "netflix"
-    ],
+      ],
       filterType: 'all',
-      setResponseData: jest.fn()
+      setResponseData: jest.fn(() => {}),
     }
     const { container } = renderComponentProps(props);
     expect(container).toMatchSnapshot();
