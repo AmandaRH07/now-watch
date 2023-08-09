@@ -15,7 +15,6 @@ describe('<About/>', () => {
   it('Should render About', () => {
     const {container} = renderComponent();
 
-    console.log("container", container);
     expect(container).toMatchSnapshot();
   })
 })

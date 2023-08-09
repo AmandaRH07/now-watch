@@ -40,7 +40,7 @@ describe('<Cards/> with params', () => {
         "netflix"
       ],
       filterType: 'all',
-      setResponseData: jest.fn(() => {}),
+      setResponseData: jest.fn(() => { }),
     }
     const { container } = renderComponentProps(props);
     expect(container).toMatchSnapshot();

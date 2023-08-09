@@ -15,7 +15,6 @@ describe('<MenuOptions/>', () => {
   it('Should render MenuOptions', () => {
     const {container} = renderComponent();
 
-    console.log("container", container);
     expect(container).toMatchSnapshot();
   })
 })

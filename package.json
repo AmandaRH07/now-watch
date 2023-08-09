@@ -24,7 +24,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --watchAll=false",
+    "test:coverage": "react-scripts test --coverage --coverageDirectory=coverage/jest --silent --updateSnapshot --watchAll=false",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -51,6 +52,16 @@
   "jest": {
     "moduleNameMapper": {
       "axios": "axios/dist/node/axios.cjs"
-    }
+    },
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!src/context/**.{js,jsx}",
+      "!**/node_modules/**",
+      "!build/**"
+    ],
+    "coverageReporters": [
+      "lcov",
+      "text"
+    ]
   }
 }
